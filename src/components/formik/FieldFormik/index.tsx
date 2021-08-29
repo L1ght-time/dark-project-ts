@@ -1,30 +1,24 @@
-import { TextField } from '@material-ui/core';
 import React, { FC } from 'react';
+import { TextField } from '@material-ui/core';
 
-interface FieldFormikProps {
-  name: string;
-  label: string;
-  type?: string;
-  autoComplete?: string;
-  variant?: 'standard' | 'filled' | 'outlined';
-}
+import FieldFormikProps from './types';
 
 const FieldFormik: FC<FieldFormikProps> = ({
   type = 'text',
   variant = 'outlined',
   autoComplete = 'off',
+  className = 'w-100 mb-4 pb-1',
   label,
   name,
-}) => {
-  return (
-    <TextField
-      id={name}
-      type={type}
-      label={label}
-      variant={variant}
-      autoComplete={autoComplete}
-    />
-  );
-};
+}) => (
+  <TextField
+    id={name}
+    type={type}
+    label={label}
+    variant={variant}
+    autoComplete={autoComplete}
+    className={className}
+  />
+);
 
 export default FieldFormik;
