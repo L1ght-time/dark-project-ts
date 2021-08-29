@@ -7,13 +7,13 @@ const FieldFormik: FC<FieldFormikProps> = ({
   type = 'text',
   variant = 'outlined',
   autoComplete = 'off',
-  className = 'w-100 mb-4 pb-1',
+  className,
   label,
   name,
 }) => (
   <TextField
-    id={name}
     type={type}
+    id={name}
     label={label}
     variant={variant}
     autoComplete={autoComplete}

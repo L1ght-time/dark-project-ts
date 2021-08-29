@@ -2,7 +2,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   form: {
-    width: '400px',
+    width: '100%',
+    maxWidth: '400px',
+    display: 'flex',
+    flexDirection: 'column',
+    margin: '64px auto 0 auto',
   },
 
   formLogoWr: {
@@ -12,11 +16,37 @@ const useStyles = makeStyles((theme) => ({
     width: '40px',
     minWidth: '40px',
     height: '40px',
-    margin: '30px auto 10px auto',
+    margin: '0 auto 10px auto',
+    borderRadius: '50%',
   },
 
   formLogo: {
     color: '#fff',
+  },
+
+  formTitle: {
+    textAlign: 'center',
+    marginBottom: '24px',
+  },
+
+  formFieldWr: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '24px 0',
+  },
+
+  formCheck: {
+    marginTop: '8px',
+  },
+
+  FormBtn: {
+    marginTop: '20px',
+  },
+
+  formLinksWr: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginTop: '16px',
   },
 }));
 
