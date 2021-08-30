@@ -5,13 +5,13 @@ import {
   FormControlLabel,
   Typography,
   Button,
-  Link,
   Container,
 } from '@material-ui/core';
 
 import useStyles from './style';
 import FieldFormik from '../../components/formik/FieldFormik';
 import IconWraper from '../../components/shared/IconWraper';
+import Link from '../../components/shared/Link';
 
 const SignIn: FC = () => {
   const styles = useStyles();
@@ -19,7 +19,7 @@ const SignIn: FC = () => {
   return (
     <Container>
       <form className={styles.form}>
-        <IconWraper className={styles.formLogoWr} bg='rgb(220, 0, 78)'>
+        <IconWraper className={styles.formLogoWr}>
           <LockOutlined className={styles.formLogo} />
         </IconWraper>
 
@@ -38,17 +38,13 @@ const SignIn: FC = () => {
           className={styles.formCheck}
         />
 
-        <Button variant='contained' color='primary' className={styles.FormBtn}>
+        <Button variant='contained' color='primary' className={styles.formBtn}>
           SIGN IN
         </Button>
 
         <div className={styles.formLinksWr}>
-          <Link href='#' variant='body2'>
-            Forgot password?
-          </Link>
-          <Link href='/sign-up' variant='body2'>
-            Don&#39;t have an account? Sign Up
-          </Link>
+          <Link to='/'>Forgot password?</Link>
+          <Link to='/sign-up'>Don&#39;t have an account? Sign Up</Link>
         </div>
       </form>
     </Container>

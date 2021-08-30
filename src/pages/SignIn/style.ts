@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     height: '40px',
     margin: '0 auto 10px auto',
     borderRadius: '50%',
+    backgroundColor: theme.palette.primary.main,
   },
 
   formLogo: {
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '8px',
   },
 
-  FormBtn: {
+  formBtn: {
     marginTop: '20px',
   },
 

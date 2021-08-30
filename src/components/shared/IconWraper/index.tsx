@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 
-import IconWraperProps from './types';
+import { IconWraperProps } from './types';
 
-const IconWraper: FC<IconWraperProps> = ({ children, className, bg }) => (
-  <div className={className} style={{ backgroundColor: bg }}>
-    {children}
-  </div>
+/* TODO: added solve with theaming for color through props */
+
+const IconWraper: FC<IconWraperProps> = ({ children, className }) => (
+  <div className={className}>{children}</div>
 );
 
 export default IconWraper;
