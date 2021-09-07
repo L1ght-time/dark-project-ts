@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
   formTitle: {
     textAlign: 'center',
-    marginBottom: '24px',
+    marginBottom: theme.spacing(3),
   },
 
   formFieldWr: {
@@ -37,17 +37,17 @@ const useStyles = makeStyles((theme) => ({
   },
 
   formCheck: {
-    marginTop: '8px',
+    marginTop: theme.spacing(1),
   },
 
   formBtn: {
-    marginTop: '20px',
+    marginTop: theme.spacing(2.5),
   },
 
   formLinksWr: {
     display: 'flex',
     justifyContent: 'space-between',
-    marginTop: '16px',
+    marginTop: theme.spacing(2),
   },
 }));
 
