@@ -4,12 +4,12 @@ import { TextField } from '@material-ui/core';
 import FieldFormikProps from './types';
 
 const FieldFormik: FC<FieldFormikProps> = ({
-  type = 'text',
-  variant = 'outlined',
-  autoComplete = 'off',
   className,
   label,
   name,
+  type = 'text',
+  variant = 'outlined',
+  autoComplete = 'off',
 }) => (
   <TextField
     type={type}
