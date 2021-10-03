@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
-const Home: FC = () => <>Home</>;
+import Header from '../../components/layout/Header';
+
+const Home: FC = () => <Header />;
 
 export default Home;
