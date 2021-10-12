@@ -9,11 +9,11 @@ import SignUp from './pages/SignUp';
 
 const App = () => (
   <>
-    <Route exact path="/" component={Home} />
-    <Route exact path="/not-found" component={NotFound} />
-    <Route exact path="/profile" component={Profile} />
-    <Route exact path="/sign-in" component={SignIn} />
-    <Route exact path="/sign-up" component={SignUp} />
+    <Route exact path='/' component={Home} />
+    <Route exact path='/not-found' component={NotFound} />
+    <Route exact path='/profile' component={Profile} />
+    <Route exact path='/sign-in' component={SignIn} />
+    <Route exact path='/sign-up' component={SignUp} />
   </>
 );
 
