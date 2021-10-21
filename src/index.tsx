@@ -1,18 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import theme from './theme/theme';
+import { ThemeProvider } from '@mui/material';
 
 const app = (
   <React.StrictMode>
-    <Router>
-      <Switch>
-        <App />
-      </Switch>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
