@@ -1,6 +1,22 @@
-import { makeStyles, Theme, alpha } from '@material-ui/core/styles';
+import { makeStyles, alpha } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme) => ({
+  offsetAppBar: {
+    width: 'calc(100% - 240)',
+    marginLeft: theme.spacing(30),
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+
+  fullAppBar: {
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+
   drawerHeader: {
     display: 'flex',
     alignItems: 'center',
@@ -8,6 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
   },
+
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -20,6 +37,21 @@ const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(1),
       width: 'auto',
+    },
+  },
+
+  searchField: {
+    '& .MuiInputBase-input': {
+      padding: theme.spacing(1, 1, 1, 0),
+      paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+      transition: theme.transitions.create('width'),
+      width: '100%',
+      [theme.breakpoints.up('sm')]: {
+        width: '12ch',
+        '&:focus': {
+          width: '20ch',
+        },
+      },
     },
   },
 
