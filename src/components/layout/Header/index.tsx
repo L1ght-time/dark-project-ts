@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from 'react';
+import React, { FC, useState, MouseEvent } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar from '@mui/material/AppBar';
@@ -27,6 +27,8 @@ import {
   Mail as MailIcon,
   Notifications as NotificationsIcon,
   MoreVert as MoreIcon,
+  Brightness4,
+  Brightness3,
 } from '@mui/icons-material';
 
 import { DRAWER_WIDTH, LIST_SIDE_BAR } from './constants';
@@ -66,7 +68,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Header = () => {
+interface HeaderProps {
+  isDarkMode: boolean;
+  setDarkMode: (value: boolean) => void;
+}
+
+const Header: FC<HeaderProps> = ({ isDarkMode, setDarkMode }) => {
   const style = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
@@ -74,33 +81,27 @@ const Header = () => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     useState<null | HTMLElement>(null);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+  const handleDrawerOpen = () => setOpen(true);
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  const handleDrawerClose = () => setOpen(false);
+
+  const handleMode = () => setDarkMode(!isDarkMode);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event: MouseEvent<HTMLElement>) => {
+  const handleProfileMenuOpen = (event: MouseEvent<HTMLElement>) =>
     setAnchorEl(event.currentTarget);
-  };
 
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
+  const handleMobileMenuClose = () => setMobileMoreAnchorEl(null);
 
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event: MouseEvent<HTMLElement>) => {
+  const handleMobileMenuOpen = (event: MouseEvent<HTMLElement>) =>
     setMobileMoreAnchorEl(event.currentTarget);
-  };
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -191,15 +192,19 @@ const Header = () => {
             <MenuIcon />
           </IconButton>
           <Box sx={{ flexGrow: 1 }} />
-          <div className={style.search}>
-            <div className={style.searchIconWrapper}>
+          <Box className={style.search}>
+            <Box className={style.searchIconWrapper}>
               <SearchIcon />
-            </div>
+            </Box>
             <StyledInputBase
               placeholder='Search…'
               inputProps={{ 'aria-label': 'search' }}
             />
-          </div>
+          </Box>
+          <IconButton sx={{ ml: 1 }} color='inherit' onClick={handleMode}>
+            {isDarkMode ? <Brightness3 /> : <Brightness4 />}
+          </IconButton>
+
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton
               size='large'
@@ -260,11 +265,11 @@ const Header = () => {
         anchor='left'
         open={open}
       >
-        <div className={style.drawerHeader}>
+        <Box className={style.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeft /> : <ChevronRight />}
           </IconButton>
-        </div>
+        </Box>
         <Divider />
         <List>
           {LIST_SIDE_BAR.map((text, index) => (

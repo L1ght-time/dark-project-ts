@@ -1,10 +1,10 @@
-import { createTheme } from '@mui/material';
+import { createTheme, responsiveFontSizes } from '@mui/material';
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: '#fff',
-    },
+    // primary: {
+    //   main: '#fff',
+    // },
     // typography: {},
     // spacing: {},
     // breakpoints,
@@ -14,4 +14,4 @@ const theme = createTheme({
   },
 });
 
-export default theme;
+export default responsiveFontSizes(theme);
