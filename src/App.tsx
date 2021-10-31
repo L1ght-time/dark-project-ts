@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ThemeProvider } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
@@ -22,7 +22,7 @@ const App = () => {
     StorageService.set('darkmode', JSON.stringify(isDarkMode));
   }, [isDarkMode]);
 
-  const theme = isDarkMode ? darkTheme : lightTheme;
+  const theme = createTheme(isDarkMode ? darkTheme : lightTheme);
 
   return (
     <ThemeProvider theme={theme}>

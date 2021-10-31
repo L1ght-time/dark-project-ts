@@ -2,15 +2,10 @@ import { createTheme, responsiveFontSizes } from '@mui/material';
 
 const theme = createTheme({
   palette: {
+    mode: 'dark',
     primary: {
-      main: '#3f51b5',
+      main: '#212121',
     },
-    // typography: {},
-    // spacing: {},
-    // breakpoints,
-    // zIndex,
-    // transitions,
-    // components,
   },
 });
 
