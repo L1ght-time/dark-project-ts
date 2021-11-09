@@ -1,4 +1,4 @@
-import React, { FC, useState, MouseEvent } from 'react';
+import React, { FC, useContext, useState, MouseEvent } from 'react';
 import {
   Badge,
   IconButton,
@@ -24,17 +24,22 @@ import HeaderMenu from './HeaderMenu';
 import HeaderMobileMenu from './HeaderMobileMenu';
 import HeaderDrawer from './HeaderDrawer';
 import { MOBILE_NENU_ID, NENU_ID } from './constants';
+import { CustomThemeContext } from '../../../theme/CustomThemeProvider';
 
-const Header: FC<HeaderProps> = ({ isDarkMode, setDarkMode }) => {
+const Header: FC<HeaderProps> = () => {
   const classes = useStyles();
   const [isOpen, setOpen] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     useState<null | HTMLElement>(null);
 
+  const { currentTheme, setTheme } = useContext(CustomThemeContext);
+  const isDark = currentTheme === 'dark';
+
   const handleDrawerOpen = () => setOpen(true);
 
-  const handleMode = () => setDarkMode(!isDarkMode);
+  const handleThemeChange = () =>
+    setTheme(currentTheme === 'dark' ? 'light' : 'dark');
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -80,8 +85,12 @@ const Header: FC<HeaderProps> = ({ isDarkMode, setDarkMode }) => {
               className={classes.searchField}
             />
           </Box>
-          <IconButton sx={{ ml: 1 }} color='inherit' onClick={handleMode}>
-            {isDarkMode ? <Brightness3 /> : <Brightness4 />}
+          <IconButton
+            sx={{ ml: 1 }}
+            color='inherit'
+            onClick={handleThemeChange}
+          >
+            {isDark ? <Brightness3 /> : <Brightness4 />}
           </IconButton>
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>

@@ -7,6 +7,7 @@ import {
   Button,
   Container,
 } from '@material-ui/core';
+import { withTheme } from '@mui/styles';
 
 import useStyles from './style';
 import FieldFormik from '../../components/formik/FieldFormik';
@@ -51,4 +52,4 @@ const SignIn: FC = () => {
   );
 };
 
-export default SignIn;
+export default withTheme(SignIn);
