@@ -10,7 +10,7 @@ import {
 
 import useStyles from './style';
 import FieldFormik from '../../components/formik/FieldFormik';
-import IconWraper from '../../components/shared/IconWraper';
+import IconWrapper from '../../components/shared/IconWraper';
 import Link from '../../components/shared/Link';
 
 export const SignIn: FC = () => {
@@ -19,9 +19,9 @@ export const SignIn: FC = () => {
   return (
     <Container>
       <form className={styles.form}>
-        <IconWraper className={styles.formLogoWr}>
+        <IconWrapper className={styles.formLogoWr}>
           <LockOutlined className={styles.formLogo} />
-        </IconWraper>
+        </IconWrapper>
 
         <Typography variant='h5' component='h5' className={styles.formTitle}>
           Sign in
