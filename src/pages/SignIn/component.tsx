@@ -7,14 +7,13 @@ import {
   Button,
   Container,
 } from '@material-ui/core';
-import { withTheme } from '@mui/styles';
 
 import useStyles from './style';
 import FieldFormik from '../../components/formik/FieldFormik';
 import IconWraper from '../../components/shared/IconWraper';
 import Link from '../../components/shared/Link';
 
-const SignIn: FC = () => {
+export const SignIn: FC = () => {
   const styles = useStyles();
 
   return (
@@ -51,5 +50,3 @@ const SignIn: FC = () => {
     </Container>
   );
 };
-
-export default withTheme(SignIn);

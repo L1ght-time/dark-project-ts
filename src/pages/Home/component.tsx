@@ -7,8 +7,6 @@ interface HomeProps {
   setDarkMode: (value: boolean) => void;
 }
 
-const Home: FC<HomeProps> = ({ isDarkMode, setDarkMode }) => (
+export const Home: FC<HomeProps> = ({ isDarkMode, setDarkMode }) => (
   <Header isDarkMode={isDarkMode} setDarkMode={setDarkMode} />
 );
-
-export default Home;

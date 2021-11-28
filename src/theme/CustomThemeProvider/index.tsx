@@ -2,16 +2,7 @@ import React, { FC, createContext, useState } from 'react';
 import { ThemeProvider } from '@mui/material';
 
 import getTheme from '../base';
-import CustomThemeProviderProps from './types';
-
-interface ContextValueData {
-  currentTheme: string;
-  setTheme: (name: string) => {};
-}
-
-interface ProviderData extends ContextValueData {
-  [key: string]: string | Function;
-}
+import { CustomThemeProviderProps, ProviderData } from './types';
 
 export const CustomThemeContext = createContext({
   currentTheme: 'light',
