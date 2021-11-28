@@ -14,35 +14,44 @@ import IconWrapper from '../../components/shared/IconWraper';
 import Link from '../../components/shared/Link';
 
 export const SignIn: FC = () => {
-  const styles = useStyles();
+  const classes = useStyles();
 
   return (
     <Container>
-      <form className={styles.form}>
-        <IconWrapper className={styles.formLogoWr}>
-          <LockOutlined className={styles.formLogo} />
+      <form className={classes.form}>
+        <IconWrapper className={classes.formLogoWr}>
+          <LockOutlined className={classes.formLogo} />
         </IconWrapper>
 
-        <Typography variant='h5' component='h5' className={styles.formTitle}>
+        <Typography variant='h5' component='h5' className={classes.formTitle}>
           Sign in
         </Typography>
 
-        <div className={styles.formFieldWr}>
-          <FieldFormik name='email' label='Email Address *' />
-          <FieldFormik type='password' name='password' label='Password *' />
+        <div className={classes.formFieldWr}>
+          <FieldFormik
+            name='email'
+            label='Email Address *'
+            className={classes.field}
+          />
+          <FieldFormik
+            type='password'
+            name='password'
+            label='Password *'
+            className={classes.field}
+          />
         </div>
 
         <FormControlLabel
           control={<Checkbox name='gilad' color='primary' />}
           label='Remember me'
-          className={styles.formCheck}
+          className={classes.formCheck}
         />
 
-        <Button variant='contained' color='primary' className={styles.formBtn}>
+        <Button variant='contained' color='primary' className={classes.formBtn}>
           SIGN IN
         </Button>
 
-        <div className={styles.formLinksWr}>
+        <div className={classes.formLinksWr}>
           <Link to='/'>Forgot password?</Link>
           <Link to='/sign-up'>Don&#39;t have an account? Sign Up</Link>
         </div>

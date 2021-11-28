@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    backgroundColor: theme.palette.primary.main,
   },
 
   fullAppBar: {
@@ -20,6 +21,19 @@ const useStyles = makeStyles((theme: Theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+  },
+
+  drawer: {
+    '& .MuiDrawer-paper': {
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.white.main,
+    },
+    '& .MuiSvgIcon-root': {
+      color: theme.palette.white.main,
+    },
+    '& .MuiDivider-root': {
+      display: 'none',
+    },
   },
 
   drawerHeader: {
@@ -46,8 +60,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 
   searchField: {
     '& .MuiInputBase-input': {
+      color: theme.palette.white.main,
       padding: theme.spacing(1, 1, 1, 0),
-      paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       transition: theme.transitions.create('width'),
       width: '100%',
       [theme.breakpoints.up('sm')]: {

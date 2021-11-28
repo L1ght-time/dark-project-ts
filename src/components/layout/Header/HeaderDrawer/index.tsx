@@ -44,6 +44,7 @@ const HeaderDrawer: FC<HeaderDrawerProps> = ({ isOpen, setOpen }) => {
       variant='persistent'
       anchor='left'
       open={isOpen}
+      className={classes.drawer}
     >
       <Box className={classes.drawerHeader}>
         <IconButton onClick={handleDrawerClose}>

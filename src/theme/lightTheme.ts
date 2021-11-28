@@ -6,7 +6,12 @@ const theme = createTheme({
     primary: {
       main: '#3f51b5',
     },
+    white: {
+      main: '#fff',
+    },
   },
+
+  components: {},
 });
 
 export default responsiveFontSizes(theme);
