@@ -7,6 +7,7 @@ import {
   TextField,
   AppBar,
 } from '@mui/material';
+
 import {
   AccountCircle,
   Menu as MenuIcon,
@@ -17,14 +18,15 @@ import {
   Brightness4,
   Brightness3,
 } from '@mui/icons-material';
+import classnames from 'classnames';
 
 import { HeaderProps } from './types';
 import useStyles from './styles';
 import HeaderMenu from './HeaderMenu';
 import HeaderMobileMenu from './HeaderMobileMenu';
 import HeaderDrawer from './HeaderDrawer';
-import { MOBILE_NENU_ID, NENU_ID } from './constants';
 import { CustomThemeContext } from '../../../theme/CustomThemeProvider';
+import { MENU_ID, MOBILE_MENU_ID } from './constants';
 
 const Header: FC<HeaderProps> = () => {
   const classes = useStyles();
@@ -61,7 +63,10 @@ const Header: FC<HeaderProps> = () => {
     <Box sx={{ display: 'flex' }}>
       <AppBar
         position='fixed'
-        className={isOpen ? classes.offsetAppBar : classes.fullAppBar}
+        className={classnames(
+          classes.root,
+          isOpen ? classes.offsetAppBar : classes.fullAppBar
+        )}
       >
         <Toolbar>
           <IconButton
@@ -116,7 +121,7 @@ const Header: FC<HeaderProps> = () => {
               size='large'
               edge='end'
               aria-label='account of current user'
-              aria-controls={NENU_ID}
+              aria-controls={MENU_ID}
               aria-haspopup='true'
               onClick={handleProfileMenuOpen}
               color='inherit'
@@ -128,7 +133,7 @@ const Header: FC<HeaderProps> = () => {
             <IconButton
               size='large'
               aria-label='show more'
-              aria-controls={MOBILE_NENU_ID}
+              aria-controls={MOBILE_MENU_ID}
               aria-haspopup='true'
               onClick={handleMobileMenuOpen}
               color='inherit'
@@ -139,7 +144,7 @@ const Header: FC<HeaderProps> = () => {
         </Toolbar>
 
         <HeaderMobileMenu
-          mobileMenuId={MOBILE_NENU_ID}
+          mobileMenuId={MOBILE_MENU_ID}
           mobileMoreAnchorEl={mobileMoreAnchorEl}
           isMobileMenuOpen={isMobileMenuOpen}
           handleProfileMenuOpen={handleProfileMenuOpen}
@@ -147,7 +152,7 @@ const Header: FC<HeaderProps> = () => {
         />
 
         <HeaderMenu
-          menuId={NENU_ID}
+          menuId={MENU_ID}
           anchorEl={anchorEl}
           isMenuOpen={isMenuOpen}
           handleMenuClose={handleMenuClose}

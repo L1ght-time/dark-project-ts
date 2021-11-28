@@ -1,6 +1,11 @@
-import { makeStyles, alpha } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
+import { alpha, Theme } from '@mui/material';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    backgroundColor: theme.palette.primary.main,
+  },
+
   offsetAppBar: {
     width: 'calc(100% - 240)',
     marginLeft: theme.spacing(30),
@@ -21,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
   },
 

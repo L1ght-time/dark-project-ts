@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
-import { LockOutlined } from '@material-ui/icons';
+import { LockOutlined } from '@mui/icons-material';
 import {
   Checkbox,
   FormControlLabel,
   Typography,
   Button,
   Container,
-} from '@material-ui/core';
+} from '@mui/material';
 
 import useStyles from './style';
 import FieldFormik from '../../components/formik/FieldFormik';

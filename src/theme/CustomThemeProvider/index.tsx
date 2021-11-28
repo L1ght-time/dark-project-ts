@@ -1,7 +1,7 @@
 import React, { FC, createContext, useState } from 'react';
-import { ThemeProvider } from '@mui/material';
+import { ThemeProvider } from '@mui/styles';
 
-import getTheme from '../base';
+import { getTheme } from '../base';
 import { CustomThemeProviderProps, ProviderData } from './types';
 
 export const CustomThemeContext = createContext({
@@ -27,8 +27,6 @@ export const CustomThemeProvider: FC<CustomThemeProviderProps> = ({
     currentTheme: themeName,
     setTheme: setThemeName,
   };
-
-  console.log('theme', theme);
 
   return (
     <CustomThemeContext.Provider value={contextValue as ProviderData}>
