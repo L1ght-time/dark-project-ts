@@ -1,19 +1,27 @@
-import React, { FC, useState, MouseEvent } from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import React, { useState, MouseEvent } from 'react';
+import { styled, useTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import MuiAppBar from '@mui/material/AppBar';
 import {
-  AppBar,
-  Box,
-  Toolbar,
-  IconButton,
-  Typography,
-  InputBase,
   Badge,
-  MenuItem,
   Menu,
+  MenuItem,
+  ListItemText,
+  ListItemIcon,
+  ListItem,
+  IconButton,
+  Divider,
+  List,
+  Toolbar,
+  Drawer,
+  Box,
+  InputBase,
 } from '@mui/material';
-
 import {
   AccountCircle,
+  ChevronLeft,
+  ChevronRight,
+  MoveToInbox,
   Menu as MenuIcon,
   Search as SearchIcon,
   Mail as MailIcon,
@@ -21,37 +29,31 @@ import {
   MoreVert as MoreIcon,
 } from '@mui/icons-material';
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}));
+import { DRAWER_WIDTH, LIST_SIDE_BAR } from './constants';
+import AppBarProps from './types';
+import useStyles from './styles';
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== 'open',
+})<AppBarProps>(({ theme, open }) => ({
+  transition: theme.transitions.create(['margin', 'width'], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  ...(open && {
+    width: `calc(100% - ${DRAWER_WIDTH}px)`,
+    marginLeft: `${DRAWER_WIDTH}px`,
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -64,10 +66,21 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Header: FC = () => {
+const Header = () => {
+  const style = useStyles();
+  const theme = useTheme();
+  const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     useState<null | HTMLElement>(null);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -164,36 +177,29 @@ const Header: FC = () => {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static'>
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <AppBar position='fixed' open={open}>
         <Toolbar>
           <IconButton
-            size='large'
-            edge='start'
             color='inherit'
             aria-label='open drawer'
-            sx={{ mr: 2 }}
+            onClick={handleDrawerOpen}
+            edge='start'
+            sx={{ mr: 2, ...(open && { display: 'none' }) }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant='h6'
-            noWrap
-            component='div'
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-            MUI
-          </Typography>
           <Box sx={{ flexGrow: 1 }} />
-          <Search>
-            <SearchIconWrapper>
+          <div className={style.search}>
+            <div className={style.searchIconWrapper}>
               <SearchIcon />
-            </SearchIconWrapper>
+            </div>
             <StyledInputBase
               placeholder='Search…'
               inputProps={{ 'aria-label': 'search' }}
             />
-          </Search>
+          </div>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton
               size='large'
@@ -238,9 +244,39 @@ const Header: FC = () => {
             </IconButton>
           </Box>
         </Toolbar>
+        {renderMobileMenu}
+        {renderMenu}
       </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
+      <Drawer
+        sx={{
+          width: DRAWER_WIDTH,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: DRAWER_WIDTH,
+            boxSizing: 'border-box',
+          },
+        }}
+        variant='persistent'
+        anchor='left'
+        open={open}
+      >
+        <div className={style.drawerHeader}>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'ltr' ? <ChevronLeft /> : <ChevronRight />}
+          </IconButton>
+        </div>
+        <Divider />
+        <List>
+          {LIST_SIDE_BAR.map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>
+                {index % 2 === 0 ? <MoveToInbox /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
     </Box>
   );
 };
