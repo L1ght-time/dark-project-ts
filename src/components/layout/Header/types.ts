@@ -1,7 +1,10 @@
 import { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 
-interface AppBarProps extends MuiAppBarProps {
+export interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
 
-export default AppBarProps;
+export interface HeaderProps {
+  isDarkMode: boolean;
+  setDarkMode: (value: boolean) => void;
+}

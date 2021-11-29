@@ -1,10 +1,8 @@
-import { Variant } from '@material-ui/core/styles/createTypography';
+import { Variant } from '@mui/material/styles/createTypography';
 import { ReactNode } from 'react';
 
-interface LinkProps {
+export interface LinkProps {
   children: ReactNode;
   to: string;
   variant?: Variant;
 }
-
-export default LinkProps;

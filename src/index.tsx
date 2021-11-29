@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { StyledEngineProvider } from '@mui/styled-engine';
 
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CustomThemeProvider } from './theme/CustomThemeProvider';
 
 const app = (
-  <React.StrictMode>
-    <Router>
-      <Switch>
+  <StrictMode>
+    <CustomThemeProvider>
+      <StyledEngineProvider injectFirst>
         <App />
-      </Switch>
-    </Router>
-  </React.StrictMode>
+      </StyledEngineProvider>
+    </CustomThemeProvider>
+  </StrictMode>
 );
 
 ReactDOM.render(app, document.getElementById('root'));

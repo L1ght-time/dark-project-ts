@@ -1,28 +1,29 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
+import { Theme } from '@mui/material';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   form: {
     width: '100%',
-    maxWidth: '400px',
     display: 'flex',
     flexDirection: 'column',
-    margin: '64px auto 0 auto',
+    maxWidth: 400,
+    margin: theme.spacing(8, 'auto', 0, 'auto'),
   },
 
   formLogoWr: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '40px',
-    minWidth: '40px',
-    height: '40px',
-    margin: '0 auto 10px auto',
     borderRadius: '50%',
+    width: 40,
+    minWidth: 40,
+    height: 40,
+    margin: theme.spacing(0, 'auto', 1.25, 'auto'),
     backgroundColor: theme.palette.primary.main,
   },
 
   formLogo: {
-    color: '#fff',
+    color: theme.palette.white.main,
   },
 
   formTitle: {
@@ -33,21 +34,45 @@ const useStyles = makeStyles((theme) => ({
   formFieldWr: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '24px 0',
+    gap: theme.spacing(3, 0),
+  },
+
+  field: {
+    '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: theme.palette.primary.main,
+    },
+
+    '& .Mui-focused': {
+      color: theme.palette.primary.main,
+    },
   },
 
   formCheck: {
     marginTop: theme.spacing(1),
+
+    '& .MuiCheckbox-root.Mui-checked': {
+      color: theme.palette.primary.main,
+    },
   },
 
   formBtn: {
     marginTop: theme.spacing(2.5),
+    backgroundColor: theme.palette.primary.main,
+
+    '&:hover': {
+      backgroundColor: theme.palette.primary.main,
+    },
   },
 
   formLinksWr: {
     display: 'flex',
     justifyContent: 'space-between',
     marginTop: theme.spacing(2),
+
+    '& .MuiLink-root': {
+      color: theme.palette.primary.main,
+      textDecorationColor: theme.palette.primary.main,
+    },
   },
 }));
 
