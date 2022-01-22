@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import Header from '../../components/layout/Header';
+import Header from './Header';
 import { HomeProps } from './types';
 
 export const Home: FC<HomeProps> = ({ isDarkMode, setDarkMode }) => (
