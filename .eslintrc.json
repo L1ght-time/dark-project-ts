@@ -17,6 +17,7 @@
     "no-use-before-define": "off",
     "semi": "off",
     "react/prop-types": "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "no-unused-vars": "off"
   }
 }

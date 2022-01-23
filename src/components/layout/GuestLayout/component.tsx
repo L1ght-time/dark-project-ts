@@ -1,6 +1,5 @@
-import React, { FunctionComponent } from 'react';
-import { Box } from '@mui/material';
+import React, { FunctionComponent, Fragment } from 'react';
 
-export const GuestLayout: FunctionComponent = () => {
-  return <Box>GuestLayout</Box>;
-};
+export const GuestLayout: FunctionComponent = ({ children }) => (
+  <Fragment>{children}</Fragment>
+);
