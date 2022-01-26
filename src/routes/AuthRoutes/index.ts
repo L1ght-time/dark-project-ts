@@ -1,7 +1,7 @@
 import { AuthRoutes } from '../../constants';
 import { Dashboard } from '../../pages';
 
-export const AuthenticatedRoutes = [
+export const authenticatedRoutes = [
   {
     path: `/${AuthRoutes.RoutePathDashboard}`,
     exact: true,
@@ -15,4 +15,4 @@ export const AuthenticatedRoutes = [
   },
 ];
 
-export const authPaths = AuthenticatedRoutes.map((route) => route.path);
+export const authPaths = authenticatedRoutes.map((route) => route.path);

@@ -1,7 +1,5 @@
-import React, { FunctionComponent, Fragment } from 'react';
+import React, { FC } from 'react';
 
 import { LayoutProps } from './type';
 
-export const Layout: FunctionComponent<LayoutProps> = ({ children }) => (
-  <Fragment>{children}</Fragment>
-);
+export const Layout: FC<LayoutProps> = ({ children }) => <>{children}</>;

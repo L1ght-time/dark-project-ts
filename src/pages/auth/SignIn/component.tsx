@@ -6,11 +6,12 @@ import {
   Typography,
   Button,
   Container,
+  Box,
 } from '@mui/material';
 
 import useStyles from './style';
 import FieldFormik from '../../../components/formik/FieldFormik';
-import IconWrapper from '../../../components/shared/IconWraper';
+import { IconWrapper } from '../../../components/shared/IconWraper';
 import Link from '../../../components/shared/Link';
 
 export const SignIn: FC = () => {
@@ -27,7 +28,7 @@ export const SignIn: FC = () => {
           Sign in
         </Typography>
 
-        <div className={classes.formFieldWr}>
+        <Box className={classes.formFieldWr}>
           <FieldFormik
             name='email'
             label='Email Address *'
@@ -39,7 +40,7 @@ export const SignIn: FC = () => {
             label='Password *'
             className={classes.field}
           />
-        </div>
+        </Box>
 
         <FormControlLabel
           control={<Checkbox name='gilad' color='primary' />}
@@ -51,10 +52,10 @@ export const SignIn: FC = () => {
           SIGN IN
         </Button>
 
-        <div className={classes.formLinksWr}>
+        <Box className={classes.formLinksWr}>
           <Link to='/'>Forgot password?</Link>
           <Link to='/sign-up'>Don&#39;t have an account? Sign Up</Link>
-        </div>
+        </Box>
       </form>
     </Container>
   );
