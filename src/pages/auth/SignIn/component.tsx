@@ -9,9 +9,9 @@ import {
 } from '@mui/material';
 
 import useStyles from './style';
-import FieldFormik from '../../components/formik/FieldFormik';
-import IconWrapper from '../../components/shared/IconWraper';
-import Link from '../../components/shared/Link';
+import FieldFormik from '../../../components/formik/FieldFormik';
+import IconWrapper from '../../../components/shared/IconWraper';
+import Link from '../../../components/shared/Link';
 
 export const SignIn: FC = () => {
   const classes = useStyles();

@@ -1,5 +1,3 @@
-export * from './Home';
+export * from './Dashboard';
 export * from './NotFound';
 export * from './Profile';
-export * from './SignIn';
-export * from './SignUp';
