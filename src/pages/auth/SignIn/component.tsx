@@ -1,18 +1,12 @@
 import React, { FC } from 'react';
 import { LockOutlined } from '@mui/icons-material';
-import {
-  Checkbox,
-  FormControlLabel,
-  Typography,
-  Button,
-  Container,
-  Box,
-} from '@mui/material';
+import { Box, Button, Checkbox, Container, FormControlLabel, Typography } from '@mui/material';
 
-import useStyles from './style';
 import FieldFormik from '../../../components/formik/FieldFormik';
 import { IconWrapper } from '../../../components/shared/IconWraper';
 import Link from '../../../components/shared/Link';
+
+import useStyles from './style';
 
 export const SignIn: FC = () => {
   const classes = useStyles();
@@ -29,17 +23,8 @@ export const SignIn: FC = () => {
         </Typography>
 
         <Box className={classes.formFieldWr}>
-          <FieldFormik
-            name='email'
-            label='Email Address *'
-            className={classes.field}
-          />
-          <FieldFormik
-            type='password'
-            name='password'
-            label='Password *'
-            className={classes.field}
-          />
+          <FieldFormik name='email' label='Email Address *' className={classes.field} />
+          <FieldFormik type='password' name='password' label='Password *' className={classes.field} />
         </Box>
 
         <FormControlLabel

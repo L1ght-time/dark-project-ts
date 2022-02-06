@@ -1,7 +1,8 @@
-import React, { FC, createContext, useState } from 'react';
+import React, { createContext, FC, useState } from 'react';
 import { ThemeProvider } from '@mui/styles';
 
 import { getTheme } from '../base';
+
 import { CustomThemeProviderProps, ProviderData } from './types';
 
 export const CustomThemeContext = createContext({
@@ -9,9 +10,7 @@ export const CustomThemeContext = createContext({
   setTheme: (name: string) => {},
 });
 
-export const CustomThemeProvider: FC<CustomThemeProviderProps> = ({
-  children,
-}) => {
+export const CustomThemeProvider: FC<CustomThemeProviderProps> = ({ children }) => {
   const currentTheme = localStorage.getItem('appTheme') || 'light';
 
   const [themeName, _setThemeName] = useState<string>(currentTheme);

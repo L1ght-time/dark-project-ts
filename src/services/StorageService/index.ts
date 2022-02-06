@@ -1,17 +1,17 @@
 class StorageService {
-  set (name: string, value: string) {
+  set(name: string, value: string) {
     return localStorage.setItem(name, value);
   }
 
-  get (name: string) {
+  get(name: string) {
     return localStorage.getItem(name);
   }
 
-  remove (name: string) {
+  remove(name: string) {
     return localStorage.removeItem(name);
   }
 
-  clear () {
+  clear() {
     return localStorage.clear();
   }
 }

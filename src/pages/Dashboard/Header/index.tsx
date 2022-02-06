@@ -1,53 +1,43 @@
-import React, { FC, useContext, useState, MouseEvent } from 'react';
-import {
-  Badge,
-  IconButton,
-  Toolbar,
-  Box,
-  TextField,
-  AppBar,
-} from '@mui/material';
-
+import React, { FC, MouseEvent, useContext, useState } from 'react';
+import { AppBar, Badge, Box, IconButton, TextField, Toolbar } from '@mui/material';
 import {
   AccountCircle,
-  Menu as MenuIcon,
-  Search as SearchIcon,
-  Mail as MailIcon,
-  Notifications as NotificationsIcon,
-  MoreVert as MoreIcon,
-  Brightness4,
   Brightness3,
+  Brightness4,
+  Mail as MailIcon,
+  Menu as MenuIcon,
+  MoreVert as MoreIcon,
+  Notifications as NotificationsIcon,
+  Search as SearchIcon,
 } from '@mui/icons-material';
 import classnames from 'classnames';
+
+import { CustomThemeContext } from '../../../theme/CustomThemeProvider';
 
 import { HeaderProps } from './types';
 import useStyles from './styles';
 import HeaderMenu from './HeaderMenu';
 import HeaderMobileMenu from './HeaderMobileMenu';
 import HeaderDrawer from './HeaderDrawer';
-import { CustomThemeContext } from '../../../theme/CustomThemeProvider';
 import { MENU_ID, MOBILE_MENU_ID } from './constants';
 
 const Header: FC<HeaderProps> = () => {
   const classes = useStyles();
   const [isOpen, setOpen] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-    useState<null | HTMLElement>(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
 
   const { currentTheme, setTheme } = useContext(CustomThemeContext);
   const isDark = currentTheme === 'dark';
 
   const handleDrawerOpen = () => setOpen(true);
 
-  const handleThemeChange = () =>
-    setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+  const handleThemeChange = () => setTheme(currentTheme === 'dark' ? 'light' : 'dark');
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event: MouseEvent<HTMLElement>) =>
-    setAnchorEl(event.currentTarget);
+  const handleProfileMenuOpen = (event: MouseEvent<HTMLElement>) => setAnchorEl(event.currentTarget);
 
   const handleMobileMenuClose = () => setMobileMoreAnchorEl(null);
 
@@ -56,18 +46,11 @@ const Header: FC<HeaderProps> = () => {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event: MouseEvent<HTMLElement>) =>
-    setMobileMoreAnchorEl(event.currentTarget);
+  const handleMobileMenuOpen = (event: MouseEvent<HTMLElement>) => setMobileMoreAnchorEl(event.currentTarget);
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar
-        position='fixed'
-        className={classnames(
-          classes.root,
-          isOpen ? classes.offsetAppBar : classes.fullAppBar
-        )}
-      >
+      <AppBar position='fixed' className={classnames(classes.root, isOpen ? classes.offsetAppBar : classes.fullAppBar)}>
         <Toolbar>
           <IconButton
             color='inherit'
@@ -84,35 +67,19 @@ const Header: FC<HeaderProps> = () => {
               <SearchIcon />
             </Box>
 
-            <TextField
-              placeholder='Search…'
-              inputProps={{ 'aria-label': 'search' }}
-              className={classes.searchField}
-            />
+            <TextField placeholder='Search…' inputProps={{ 'aria-label': 'search' }} className={classes.searchField} />
           </Box>
-          <IconButton
-            sx={{ ml: 1 }}
-            color='inherit'
-            onClick={handleThemeChange}
-          >
+          <IconButton sx={{ ml: 1 }} color='inherit' onClick={handleThemeChange}>
             {isDark ? <Brightness3 /> : <Brightness4 />}
           </IconButton>
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton
-              size='large'
-              aria-label='show 4 new mails'
-              color='inherit'
-            >
+            <IconButton size='large' aria-label='show 4 new mails' color='inherit'>
               <Badge badgeContent={4} color='error'>
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              size='large'
-              aria-label='show 17 new notifications'
-              color='inherit'
-            >
+            <IconButton size='large' aria-label='show 17 new notifications' color='inherit'>
               <Badge badgeContent={17} color='error'>
                 <NotificationsIcon />
               </Badge>
@@ -151,12 +118,7 @@ const Header: FC<HeaderProps> = () => {
           handleMobileMenuClose={handleMobileMenuClose}
         />
 
-        <HeaderMenu
-          menuId={MENU_ID}
-          anchorEl={anchorEl}
-          isMenuOpen={isMenuOpen}
-          handleMenuClose={handleMenuClose}
-        />
+        <HeaderMenu menuId={MENU_ID} anchorEl={anchorEl} isMenuOpen={isMenuOpen} handleMenuClose={handleMenuClose} />
       </AppBar>
 
       <HeaderDrawer isOpen={isOpen} setOpen={setOpen} />

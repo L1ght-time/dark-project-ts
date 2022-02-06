@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Mail, AccountCircle, Notifications } from '@mui/icons-material';
+import { AccountCircle, Mail, Notifications } from '@mui/icons-material';
 import { Badge, IconButton, Menu, MenuItem } from '@mui/material';
 
 import HeaderMobileMenuProps from './types';
@@ -35,11 +35,7 @@ const HeaderMobileMenu: FC<HeaderMobileMenuProps> = ({
       <p>Messages</p>
     </MenuItem>
     <MenuItem>
-      <IconButton
-        size='large'
-        aria-label='show 17 new notifications'
-        color='inherit'
-      >
+      <IconButton size='large' aria-label='show 17 new notifications' color='inherit'>
         <Badge badgeContent={17} color='error'>
           <Notifications />
         </Badge>
