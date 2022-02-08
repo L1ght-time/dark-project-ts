@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useMemo, useState } from 'react';
 import { ThemeProvider } from '@mui/styles';
 
 import { getTheme } from '../base';
@@ -7,6 +7,7 @@ import { CustomThemeProviderProps, ProviderData } from './types';
 
 export const CustomThemeContext = createContext({
   currentTheme: 'light',
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setTheme: (name: string) => {},
 });
 
@@ -22,10 +23,13 @@ export function CustomThemeProvider({ children }: CustomThemeProviderProps): JSX
     _setThemeName(name);
   };
 
-  const contextValue = {
-    currentTheme: themeName,
-    setTheme: setThemeName,
-  };
+  const contextValue = useMemo(
+    () => ({
+      currentTheme: themeName,
+      setTheme: setThemeName,
+    }),
+    [themeName, setThemeName]
+  );
 
   return (
     <CustomThemeContext.Provider value={contextValue as ProviderData}>
