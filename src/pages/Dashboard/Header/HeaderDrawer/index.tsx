@@ -7,7 +7,7 @@ import useStyles from '../styles';
 
 import { HeaderDrawerProps } from './types';
 
-function HeaderDrawer({ isOpen, setOpen }: HeaderDrawerProps) {
+function HeaderDrawer({ isOpen, setOpen }: HeaderDrawerProps): JSX.Element {
   const classes = useStyles();
   const theme = useTheme();
 

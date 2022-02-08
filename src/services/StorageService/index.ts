@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 class StorageService {
   set(name: string, value: string) {
     return localStorage.setItem(name, value);

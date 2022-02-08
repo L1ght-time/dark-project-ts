@@ -1,5 +1,5 @@
 import React from 'react';
 
-export function Profile() {
+export function Profile(): JSX.Element {
   return <>Profile</>;
 }

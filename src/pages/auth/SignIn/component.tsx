@@ -8,7 +8,7 @@ import Link from '../../../components/shared/Link';
 
 import useStyles from './style';
 
-export function SignIn() {
+export function SignIn(): JSX.Element {
   const classes = useStyles();
 
   return (

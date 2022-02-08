@@ -1,5 +1,5 @@
 import React from 'react';
 
-export function ForgotPassword() {
+export function ForgotPassword(): JSX.Element {
   return <>ForgotPassword</>;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
 
-export function NotFound() {
+export function NotFound(): JSX.Element {
   return <>Not Found</>;
 }

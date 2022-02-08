@@ -3,7 +3,7 @@ import { Menu, MenuItem } from '@mui/material';
 
 import HeaderMenuProps from './types';
 
-function HeaderMenu({ menuId, anchorEl, isMenuOpen, handleMenuClose }: HeaderMenuProps) {
+function HeaderMenu({ menuId, anchorEl, isMenuOpen, handleMenuClose }: HeaderMenuProps): JSX.Element {
   return (
     <Menu
       id={menuId}

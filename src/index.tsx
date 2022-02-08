@@ -4,7 +4,6 @@ import { StyledEngineProvider } from '@mui/styled-engine';
 
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { CustomThemeProvider } from './theme/CustomThemeProvider';
 
 const app = (
@@ -18,5 +17,3 @@ const app = (
 );
 
 ReactDOM.render(app, document.getElementById('root'));
-
-reportWebVitals();

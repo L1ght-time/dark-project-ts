@@ -10,7 +10,7 @@ export const CustomThemeContext = createContext({
   setTheme: (name: string) => {},
 });
 
-export function CustomThemeProvider({ children }: CustomThemeProviderProps) {
+export function CustomThemeProvider({ children }: CustomThemeProviderProps): JSX.Element {
   const currentTheme = localStorage.getItem('appTheme') || 'light';
 
   const [themeName, _setThemeName] = useState<string>(currentTheme);

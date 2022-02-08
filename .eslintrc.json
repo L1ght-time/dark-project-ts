@@ -52,7 +52,6 @@
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/naming-convention": "off",
     "react/jsx-no-constructed-context-values": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
     "class-methods-use-this": "off"
   }
 }

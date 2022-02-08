@@ -10,7 +10,7 @@ function FieldFormik({
   type = 'text',
   variant = 'outlined',
   autoComplete = 'off',
-}: FieldFormikProps) {
+}: FieldFormikProps): JSX.Element {
   return (
     <TextField
       type={type}

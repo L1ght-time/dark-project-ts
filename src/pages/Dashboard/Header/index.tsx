@@ -20,7 +20,7 @@ import HeaderMobileMenu from './HeaderMobileMenu';
 import HeaderDrawer from './HeaderDrawer';
 import { MENU_ID, MOBILE_MENU_ID } from './constants';
 
-function Header() {
+function Header(): JSX.Element {
   const classes = useStyles();
   const [isOpen, setOpen] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);

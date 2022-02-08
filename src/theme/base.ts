@@ -7,4 +7,4 @@ const themes: ThemeKeys = {
   dark,
 };
 
-export const getTheme = (theme: string) => themes[theme];
+export const getTheme = (theme: string): ThemeKeys[string] => themes[theme];

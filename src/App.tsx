@@ -8,7 +8,7 @@ import { nonAuthPaths } from './routes/NonAuthRoutes';
 import { GuestLayout } from './components/layout/GuestLayout';
 import { ForgotPassword, SignIn, SignUp } from './pages/auth';
 
-function App() {
+function App(): JSX.Element {
   return (
     <Router>
       <Switch>

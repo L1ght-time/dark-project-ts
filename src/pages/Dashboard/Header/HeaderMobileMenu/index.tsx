@@ -10,7 +10,7 @@ function HeaderMobileMenu({
   isMobileMenuOpen,
   handleProfileMenuOpen,
   handleMobileMenuClose,
-}: HeaderMobileMenuProps) {
+}: HeaderMobileMenuProps): JSX.Element {
   return (
     <Menu
       id={mobileMenuId}
