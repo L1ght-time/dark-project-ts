@@ -1,3 +1,8 @@
-import React, { FC } from 'react';
+import React from 'react';
 
-export const GuestLayout: FC = ({ children }) => <>{children}</>;
+import { GuestLayoutProps } from './types';
+
+export function GuestLayout({ children }: GuestLayoutProps) {
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  return <>{children}</>;
+}

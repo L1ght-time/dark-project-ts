@@ -1,17 +1,26 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { TextField } from '@mui/material';
 
 import FieldFormikProps from './types';
 
-const FieldFormik: FC<FieldFormikProps> = ({
+function FieldFormik({
   className,
   label,
   name,
   type = 'text',
   variant = 'outlined',
   autoComplete = 'off',
-}) => (
-  <TextField type={type} id={name} label={label} variant={variant} autoComplete={autoComplete} className={className} />
-);
+}: FieldFormikProps) {
+  return (
+    <TextField
+      type={type}
+      id={name}
+      label={label}
+      variant={variant}
+      autoComplete={autoComplete}
+      className={className}
+    />
+  );
+}
 
 export default FieldFormik;

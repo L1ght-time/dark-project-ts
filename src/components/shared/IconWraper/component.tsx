@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Box } from '@mui/material';
 
 import { IconWraperProps } from './types';
 
-export const IconWrapper: FC<IconWraperProps> = ({ children, className }) => (
-  <Box className={className}>{children}</Box>
-);
+export function IconWrapper({ children, className }: IconWraperProps) {
+  return <Box className={className}>{children}</Box>;
+}

@@ -1,16 +1,13 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, useTheme } from '@mui/material';
 import { ChevronLeft, ChevronRight, Mail, MoveToInbox } from '@mui/icons-material';
 
 import { DRAWER_WIDTH, LIST_SIDE_BAR } from '../constants';
 import useStyles from '../styles';
 
-interface HeaderDrawerProps {
-  isOpen: boolean;
-  setOpen: (value: boolean) => void;
-}
+import { HeaderDrawerProps } from './types';
 
-const HeaderDrawer: FC<HeaderDrawerProps> = ({ isOpen, setOpen }) => {
+function HeaderDrawer({ isOpen, setOpen }: HeaderDrawerProps) {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -47,6 +44,6 @@ const HeaderDrawer: FC<HeaderDrawerProps> = ({ isOpen, setOpen }) => {
       </List>
     </Drawer>
   );
-};
+}
 
 export default HeaderDrawer;

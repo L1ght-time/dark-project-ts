@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent, useContext, useState } from 'react';
+import React, { MouseEvent, useContext, useState } from 'react';
 import { AppBar, Badge, Box, IconButton, TextField, Toolbar } from '@mui/material';
 import {
   AccountCircle,
@@ -14,14 +14,13 @@ import classnames from 'classnames';
 
 import { CustomThemeContext } from '../../../theme/CustomThemeProvider';
 
-import { HeaderProps } from './types';
 import useStyles from './styles';
 import HeaderMenu from './HeaderMenu';
 import HeaderMobileMenu from './HeaderMobileMenu';
 import HeaderDrawer from './HeaderDrawer';
 import { MENU_ID, MOBILE_MENU_ID } from './constants';
 
-const Header: FC<HeaderProps> = () => {
+function Header() {
   const classes = useStyles();
   const [isOpen, setOpen] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -124,6 +123,6 @@ const Header: FC<HeaderProps> = () => {
       <HeaderDrawer isOpen={isOpen} setOpen={setOpen} />
     </Box>
   );
-};
+}
 
 export default Header;

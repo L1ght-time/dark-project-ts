@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { LockOutlined } from '@mui/icons-material';
 import { Box, Button, Checkbox, Container, FormControlLabel, Typography } from '@mui/material';
 
@@ -8,7 +8,7 @@ import Link from '../../../components/shared/Link';
 
 import useStyles from './style';
 
-export const SignIn: FC = () => {
+export function SignIn() {
   const classes = useStyles();
 
   return (
@@ -44,4 +44,4 @@ export const SignIn: FC = () => {
       </form>
     </Container>
   );
-};
+}

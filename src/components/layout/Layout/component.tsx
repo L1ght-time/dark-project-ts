@@ -1,5 +1,8 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { LayoutProps } from './type';
 
-export const Layout: FC<LayoutProps> = ({ children }) => <>{children}</>;
+export function Layout({ children }: LayoutProps) {
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  return <>{children}</>;
+}
