@@ -1,3 +1,5 @@
 import React from 'react';
 
-export const NotFound = () => <>Not Found</>;
+export function NotFound(): JSX.Element {
+  return <>Not Found</>;
+}

@@ -1,5 +1,8 @@
-import React, { FunctionComponent, Fragment } from 'react';
+import React from 'react';
 
-export const GuestLayout: FunctionComponent = ({ children }) => (
-  <Fragment>{children}</Fragment>
-);
+import { GuestLayoutProps } from './types';
+
+export function GuestLayout({ children }: GuestLayoutProps): JSX.Element {
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  return <>{children}</>;
+}

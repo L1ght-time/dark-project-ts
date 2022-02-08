@@ -1,3 +1,5 @@
 import React from 'react';
 
-export const SignUp = () => <>SignUp</>;
+export function SignUp(): JSX.Element {
+  return <>SignUp</>;
+}

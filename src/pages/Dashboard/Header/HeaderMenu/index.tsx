@@ -1,13 +1,9 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Menu, MenuItem } from '@mui/material';
+
 import HeaderMenuProps from './types';
 
-const HeaderMenu: FC<HeaderMenuProps> = ({
-  menuId,
-  anchorEl,
-  isMenuOpen,
-  handleMenuClose,
-}) => {
+function HeaderMenu({ menuId, anchorEl, isMenuOpen, handleMenuClose }: HeaderMenuProps): JSX.Element {
   return (
     <Menu
       id={menuId}
@@ -28,6 +24,6 @@ const HeaderMenu: FC<HeaderMenuProps> = ({
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
-};
+}
 
 export default HeaderMenu;

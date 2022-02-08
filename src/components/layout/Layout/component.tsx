@@ -1,7 +1,8 @@
-import React, { FunctionComponent, Fragment } from 'react';
+import React from 'react';
 
 import { LayoutProps } from './type';
 
-export const Layout: FunctionComponent<LayoutProps> = ({ children }) => (
-  <Fragment>{children}</Fragment>
-);
+export function Layout({ children }: LayoutProps): JSX.Element {
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  return <>{children}</>;
+}

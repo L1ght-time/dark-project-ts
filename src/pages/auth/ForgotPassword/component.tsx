@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
-export const ForgotPassword: FunctionComponent = () => {
-  return <div>ForgotPassword</div>;
-};
+export function ForgotPassword(): JSX.Element {
+  return <>ForgotPassword</>;
+}

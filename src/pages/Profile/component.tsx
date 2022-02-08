@@ -1,3 +1,5 @@
 import React from 'react';
 
-export const Profile = () => <>Profile</>;
+export function Profile(): JSX.Element {
+  return <>Profile</>;
+}
