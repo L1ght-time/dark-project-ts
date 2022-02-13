@@ -2,6 +2,7 @@ import React from 'react';
 import { LockOutlined } from '@mui/icons-material';
 import { Box, Button, Checkbox, Container, FormControlLabel, Typography } from '@mui/material';
 
+/* deprecated */
 import FieldFormik from '../../../components/formik/FieldFormik';
 import { IconWrapper } from '../../../components/shared/IconWraper';
 import Link from '../../../components/shared/Link';
