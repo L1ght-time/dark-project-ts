@@ -1,6 +1,7 @@
 export enum AuthRoutes {
   RoutePathDashboard = '/',
   RoutePathProfile = 'profile',
+  RoutePathFormik = 'formik',
 }
 
 export enum GuestRoutes {
@@ -8,4 +9,9 @@ export enum GuestRoutes {
   RouteRegistration = 'sign-up',
   RouteForgotPassword = 'forgot-password',
   RouteNotFound = 'not-found',
+}
+
+export enum FormikRoutes {
+  RouteField = 'field',
+  RouteFieldArray = 'field-array',
 }

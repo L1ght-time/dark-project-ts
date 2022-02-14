@@ -1,9 +1,11 @@
 import React from 'react';
-import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, useTheme } from '@mui/material';
-import { ChevronLeft, ChevronRight, Mail, MoveToInbox } from '@mui/icons-material';
+import { Box, Divider, Drawer, IconButton, List, ListItem, useTheme } from '@mui/material';
+import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
 import { DRAWER_WIDTH, LIST_SIDE_BAR } from '../constants';
 import useStyles from '../styles';
+import { AuthRoutes } from '../../../../constants';
+import Link from '../../../../components/shared/Link';
 
 import { HeaderDrawerProps } from './types';
 
@@ -35,10 +37,9 @@ function HeaderDrawer({ isOpen, setOpen }: HeaderDrawerProps): JSX.Element {
       </Box>
       <Divider />
       <List>
-        {LIST_SIDE_BAR.map((text, index) => (
+        {LIST_SIDE_BAR.map((text, index: number) => (
           <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <MoveToInbox /> : <Mail />}</ListItemIcon>
-            <ListItemText primary={text} />
+            <Link to={`/${Object.keys(AuthRoutes)[index]}`}>{text}</Link>
           </ListItem>
         ))}
       </List>
