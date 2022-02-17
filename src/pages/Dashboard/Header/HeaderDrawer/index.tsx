@@ -1,19 +1,40 @@
-import React from 'react';
-import { Box, Divider, Drawer, IconButton, List, ListItem, useTheme } from '@mui/material';
-import { ChevronLeft, ChevronRight } from '@mui/icons-material';
+import React, { useState } from 'react';
+import {
+  Box,
+  Collapse,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItemButton,
+  ListItemText,
+  useTheme,
+} from '@mui/material';
+import { ChevronLeft, ChevronRight, ExpandLess, ExpandMore } from '@mui/icons-material';
+import { useHistory } from 'react-router-dom';
 
 import { DRAWER_WIDTH, LIST_SIDE_BAR } from '../constants';
 import useStyles from '../styles';
-import { AuthRoutes } from '../../../../constants';
-import Link from '../../../../components/shared/Link';
 
-import { HeaderDrawerProps } from './types';
+import { HeaderDrawerProps, ListItemsFormikData } from './types';
+import { ListItem } from './ListItem';
+import { listItemsFormikModel } from './constants';
 
 function HeaderDrawer({ isOpen, setOpen }: HeaderDrawerProps): JSX.Element {
   const classes = useStyles();
   const theme = useTheme();
+  const history = useHistory();
+  const [openListItem, setOpenListItem] = useState<boolean>(false);
 
   const handleDrawerClose = () => setOpen(false);
+
+  const handleClick = () => {
+    setOpenListItem(!openListItem);
+  };
+
+  const handleFormik = (link: string) => {
+    history.push(link);
+  };
 
   return (
     <Drawer
@@ -37,10 +58,23 @@ function HeaderDrawer({ isOpen, setOpen }: HeaderDrawerProps): JSX.Element {
       </Box>
       <Divider />
       <List>
-        {LIST_SIDE_BAR.map((text, index: number) => (
-          <ListItem button key={text}>
-            <Link to={`/${Object.keys(AuthRoutes)[index]}`}>{text}</Link>
-          </ListItem>
+        {LIST_SIDE_BAR.map((text) => (
+          <List key={text} component='div' disablePadding>
+            <ListItemButton onClick={handleClick}>
+              <ListItemText primary={text} />
+              {openListItem ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+
+            <Collapse in={openListItem} timeout='auto' unmountOnExit>
+              <List component='div' disablePadding>
+                {listItemsFormikModel.map(({ itemText, link }: ListItemsFormikData) => (
+                  <ListItem key={itemText} handleFormik={() => handleFormik(link)}>
+                    {itemText}
+                  </ListItem>
+                ))}
+              </List>
+            </Collapse>
+          </List>
         ))}
       </List>
     </Drawer>

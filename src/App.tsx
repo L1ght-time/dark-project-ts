@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Dashboard, Formik, NotFound, Profile } from './pages';
+import { Dashboard, NotFound, Profile } from './pages';
 import { authPaths } from './routes/authRoutes';
 import { Layout } from './components/layout/Layout';
 import { nonAuthPaths } from './routes/nonAuthRoutes';
@@ -19,7 +19,6 @@ function App(): JSX.Element {
             <Switch>
               <Route exact path={`/${AuthRoutes.RoutePathDashboard}`} component={Dashboard} />
               <Route exact path={`/${AuthRoutes.RoutePathProfile}`} component={Profile} />
-              <Route exact path={`/${AuthRoutes.RoutePathFormik}`} component={Formik} />
               <Route
                 exact
                 path={`/${AuthRoutes.RoutePathFormik}/${FormikRoutes.RouteField}`}
