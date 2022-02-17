@@ -3,7 +3,12 @@ export interface HeaderDrawerProps {
   setOpen: (value: boolean) => void;
 }
 
-export interface ListItemsFormikData {
-  itemText: string;
+export interface RoutesData {
+  label: string;
   link: string;
+}
+
+export interface ListItemsData {
+  label: string;
+  routes: RoutesData[];
 }

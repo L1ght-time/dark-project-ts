@@ -4,12 +4,12 @@ import { Link as RouterLink } from 'react-router-dom';
 
 import { LinkProps } from './types';
 
-function Link({ children, to = '/', variant = 'body2' }: LinkProps): JSX.Element {
+function MuiLink({ children, to = '/', ...props }: LinkProps): JSX.Element {
   return (
-    <MaterialLink component={RouterLink} to={to} variant={variant}>
+    <MaterialLink component={RouterLink} to={to} {...props}>
       {children}
     </MaterialLink>
   );
 }
 
-export default Link;
+export default MuiLink;

@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { RoutesData } from '../types';
 
-export interface ListItemData {
-  children: ReactNode;
-  handleFormik: () => void;
+export interface ListItemProps extends RoutesData {
+  isListItemOpen: boolean;
+  setListItemOpen: (value: boolean) => void;
 }

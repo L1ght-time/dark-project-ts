@@ -1,12 +1,18 @@
 import React from 'react';
 import { ListItemButton } from '@mui/material';
 
-import { ListItemData } from './types';
+import MuiLink from '../../../../../components/shared/MuiLink';
 
-export function ListItem({ children, handleFormik }: ListItemData): JSX.Element {
+import { ListItemProps } from './types';
+
+export function ListItem({ label, link, isListItemOpen, setListItemOpen }: ListItemProps) {
+  const handleSwitch = () => {
+    setListItemOpen(!isListItemOpen);
+  };
+
   return (
-    <ListItemButton sx={{ pl: 4 }} onClick={handleFormik}>
-      {children}
+    <ListItemButton sx={{ pl: 4 }} onClick={handleSwitch}>
+      <MuiLink to={link}>{label}</MuiLink>
     </ListItemButton>
   );
 }

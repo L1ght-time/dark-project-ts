@@ -1,14 +1,32 @@
 import { AuthRoutes, FormikRoutes } from '../../../../constants';
 
-import { ListItemsFormikData } from './types';
+import { ListItemsData } from './types';
 
-export const listItemsFormikModel: ListItemsFormikData[] = [
+export const listItemsModel: ListItemsData[] = [
   {
-    itemText: 'Field',
-    link: `/${AuthRoutes.RoutePathFormik}/${FormikRoutes.RouteField}`,
+    label: 'Formik',
+    routes: [
+      {
+        label: 'Field',
+        link: `/${AuthRoutes.RoutePathFormik}/${FormikRoutes.RouteField}`,
+      },
+      {
+        label: 'FieldArray',
+        link: `/${AuthRoutes.RoutePathFormik}/${FormikRoutes.RouteFieldArray}`,
+      },
+    ],
   },
   {
-    itemText: 'FieldArray',
-    link: `/${AuthRoutes.RoutePathFormik}/${FormikRoutes.RouteFieldArray}`,
+    label: 'regerg',
+    routes: [
+      {
+        label: 'Field1',
+        link: `/${AuthRoutes.RoutePathFormik}/${FormikRoutes.RouteField}`,
+      },
+      {
+        label: 'FieldArray1',
+        link: `/${AuthRoutes.RoutePathFormik}/${FormikRoutes.RouteFieldArray}`,
+      },
+    ],
   },
 ];
