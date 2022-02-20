@@ -17,7 +17,7 @@ import { CustomThemeContext } from '../../theme/CustomThemeProvider';
 import useStyles from './styles';
 import HeaderMenu from './HeaderMenu';
 import HeaderMobileMenu from './HeaderMobileMenu';
-import HeaderDrawer from './HeaderDrawer';
+import { HeaderDrawer } from './HeaderDrawer';
 import { MENU_ID, MOBILE_MENU_ID } from './constants';
 
 function Header(): JSX.Element {

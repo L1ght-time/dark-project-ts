@@ -9,7 +9,7 @@ import { HeaderDrawerProps, ListItemsData } from './types';
 import { listItemsModel } from './constants';
 import { SideBarList } from './SideBarList';
 
-function HeaderDrawer({ isOpen, setOpen }: HeaderDrawerProps): JSX.Element {
+export function HeaderDrawer({ isOpen, setOpen }: HeaderDrawerProps): JSX.Element {
   const classes = useStyles();
   const theme = useTheme();
   const handleDrawerClose = () => setOpen(false);
@@ -43,5 +43,3 @@ function HeaderDrawer({ isOpen, setOpen }: HeaderDrawerProps): JSX.Element {
     </Drawer>
   );
 }
-
-export default HeaderDrawer;
