@@ -1,7 +1,11 @@
 import { ReactNode } from 'react';
+import { LinkProps } from '@mui/material';
 
-export interface LinkProps {
+type UnderlineType = 'always' | 'hover' | 'none';
+
+export interface ILinkProps {
   children: ReactNode;
   to: string;
+  underline?: UnderlineType;
   props?: LinkProps;
 }

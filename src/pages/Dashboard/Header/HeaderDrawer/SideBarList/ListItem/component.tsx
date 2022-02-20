@@ -1,0 +1,15 @@
+import React from 'react';
+import { ListItemButton } from '@mui/material';
+
+import MuiLink from '../../../../../../components/shared/MuiLink';
+import { RoutesData } from '../../types';
+
+export function ListItem({ label, link }: RoutesData) {
+  return (
+    <ListItemButton sx={{ pl: 4 }}>
+      <MuiLink to={link} underline='none'>
+        {label}
+      </MuiLink>
+    </ListItemButton>
+  );
+}

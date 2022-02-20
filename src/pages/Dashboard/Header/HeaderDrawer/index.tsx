@@ -1,36 +1,18 @@
-import React, { useState } from 'react';
-import {
-  Box,
-  Collapse,
-  Divider,
-  Drawer,
-  IconButton,
-  List,
-  ListItemButton,
-  ListItemText,
-  useTheme,
-} from '@mui/material';
-import { ChevronLeft, ChevronRight, ExpandLess, ExpandMore } from '@mui/icons-material';
+import React from 'react';
+import { Box, Divider, Drawer, IconButton, List, useTheme } from '@mui/material';
+import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
 import { DRAWER_WIDTH } from '../constants';
 import useStyles from '../styles';
 
-import { HeaderDrawerProps, ListItemsData, RoutesData } from './types';
+import { HeaderDrawerProps, ListItemsData } from './types';
 import { listItemsModel } from './constants';
-import { ListItem } from './ListItem';
+import { SideBarList } from './SideBarList';
 
 function HeaderDrawer({ isOpen, setOpen }: HeaderDrawerProps): JSX.Element {
   const classes = useStyles();
   const theme = useTheme();
-  const [openListItem, setOpenListItem] = useState<boolean>(false);
-
   const handleDrawerClose = () => setOpen(false);
-
-  const handleClick = () => {
-    setOpenListItem((prevState) => !prevState);
-  };
-
-  const [isListItemOpen, setListItemOpen] = useState<boolean>(false);
 
   return (
     <Drawer
@@ -55,23 +37,7 @@ function HeaderDrawer({ isOpen, setOpen }: HeaderDrawerProps): JSX.Element {
       <Divider />
       <List>
         {listItemsModel.map(({ label, routes }: ListItemsData) => (
-          <List key={label} component='div' disablePadding>
-            <ListItemButton onClick={handleClick}>
-              <ListItemText primary={label} />
-              {openListItem ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-
-            <Collapse in={isListItemOpen} timeout='auto' unmountOnExit>
-              {routes.map((props: RoutesData) => (
-                <ListItem
-                  key={props.label}
-                  isListItemOpen={isListItemOpen}
-                  setListItemOpen={setListItemOpen}
-                  {...props}
-                />
-              ))}
-            </Collapse>
-          </List>
+          <SideBarList key={label} routes={routes} label={label} />
         ))}
       </List>
     </Drawer>
