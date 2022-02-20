@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from '../../../pages/Dashboard/Header';
+import Header from '../../Header';
 
 import { LayoutProps } from './type';
 
