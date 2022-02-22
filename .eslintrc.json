@@ -48,7 +48,6 @@
     "import/prefer-default-export": "off",
     "@typescript-eslint/naming-convention": "off",
     "class-methods-use-this": "off",
-     "react/jsx-props-no-spreading": "off"
-
+    "react/jsx-props-no-spreading": "off"
   }
 }
