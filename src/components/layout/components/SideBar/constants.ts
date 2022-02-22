@@ -1,4 +1,4 @@
-import { AuthRoutes, FormikRoutes } from '../../constants';
+import { AuthRoutes, FormikRoutes } from '../../../../constants';
 
 import { ListItemsData } from './types';
 

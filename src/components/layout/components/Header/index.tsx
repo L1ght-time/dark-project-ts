@@ -11,8 +11,7 @@ import {
   Search as SearchIcon,
 } from '@mui/icons-material';
 import classnames from 'classnames';
-
-import { CustomThemeContext } from '../../theme/CustomThemeProvider';
+import { CustomThemeContext } from 'theme/CustomThemeProvider';
 
 import useStyles from './styles';
 import HeaderMenu from './HeaderMenu';

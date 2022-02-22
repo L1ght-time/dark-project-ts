@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 
-import MuiLink from '../../../shared/MuiLink';
+import MuiLink from '../../../../../shared/MuiLink';
 import { RoutesData } from '../../types';
 
 export function ListItem({ label, link }: RoutesData): JSX.Element {
