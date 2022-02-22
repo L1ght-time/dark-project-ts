@@ -19,17 +19,18 @@ import HeaderMenu from './HeaderMenu';
 import HeaderMobileMenu from './HeaderMobileMenu';
 import { HeaderDrawer } from './HeaderDrawer';
 import { MENU_ID, MOBILE_MENU_ID } from './constants';
+import { HeaderProps } from './types';
 
-function Header(): JSX.Element {
+function Header({ isSideBar, setSideBar }: HeaderProps): JSX.Element {
   const classes = useStyles();
-  const [isOpen, setOpen] = useState<boolean>(false);
+
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
 
   const { currentTheme, setTheme } = useContext(CustomThemeContext);
   const isDark = currentTheme === 'dark';
 
-  const handleDrawerOpen = () => setOpen(true);
+  const handleDrawerOpen = () => setSideBar(true);
 
   const handleThemeChange = () => setTheme(currentTheme === 'dark' ? 'light' : 'dark');
 
@@ -49,14 +50,17 @@ function Header(): JSX.Element {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar position='fixed' className={classnames(classes.root, isOpen ? classes.offsetAppBar : classes.fullAppBar)}>
+      <AppBar
+        position='fixed'
+        className={classnames(classes.root, isSideBar ? classes.offsetAppBar : classes.fullAppBar)}
+      >
         <Toolbar>
           <IconButton
             color='inherit'
             aria-label='open drawer'
             onClick={handleDrawerOpen}
             edge='start'
-            sx={{ mr: 2, ...(isOpen && { display: 'none' }) }}
+            sx={{ mr: 2, ...(isSideBar && { display: 'none' }) }}
           >
             <MenuIcon />
           </IconButton>
@@ -120,7 +124,7 @@ function Header(): JSX.Element {
         <HeaderMenu menuId={MENU_ID} anchorEl={anchorEl} isMenuOpen={isMenuOpen} handleMenuClose={handleMenuClose} />
       </AppBar>
 
-      <HeaderDrawer isOpen={isOpen} setOpen={setOpen} />
+      <HeaderDrawer isOpen={isSideBar} setOpen={setSideBar} />
     </Box>
   );
 }
