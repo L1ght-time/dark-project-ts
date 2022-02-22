@@ -1,4 +1,4 @@
-export interface HeaderDrawerProps {
+export interface SideBarProps {
   isOpen: boolean;
   setOpen: (value: boolean) => void;
 }

@@ -2,14 +2,14 @@ import React from 'react';
 import { Box, Divider, Drawer, IconButton, List, useTheme } from '@mui/material';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
-import { DRAWER_WIDTH } from '../constants';
-import useStyles from '../styles';
+import useStyles from '../Header/styles';
+import { DRAWER_WIDTH } from '../Header/constants';
 
-import { HeaderDrawerProps, ListItemsData } from './types';
 import { listItemsModel } from './constants';
+import { ListItemsData, SideBarProps } from './types';
 import { SideBarList } from './SideBarList';
 
-export function HeaderDrawer({ isOpen, setOpen }: HeaderDrawerProps): JSX.Element {
+export function SideBar({ isOpen, setOpen }: SideBarProps): JSX.Element {
   const classes = useStyles();
   const theme = useTheme();
   const handleDrawerClose = () => setOpen(false);

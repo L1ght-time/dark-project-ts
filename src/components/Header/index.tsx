@@ -17,7 +17,6 @@ import { CustomThemeContext } from '../../theme/CustomThemeProvider';
 import useStyles from './styles';
 import HeaderMenu from './HeaderMenu';
 import HeaderMobileMenu from './HeaderMobileMenu';
-import { HeaderDrawer } from './HeaderDrawer';
 import { MENU_ID, MOBILE_MENU_ID } from './constants';
 import { HeaderProps } from './types';
 
@@ -123,8 +122,6 @@ function Header({ isSideBar, setSideBar }: HeaderProps): JSX.Element {
 
         <HeaderMenu menuId={MENU_ID} anchorEl={anchorEl} isMenuOpen={isMenuOpen} handleMenuClose={handleMenuClose} />
       </AppBar>
-
-      <HeaderDrawer isOpen={isSideBar} setOpen={setSideBar} />
     </Box>
   );
 }
