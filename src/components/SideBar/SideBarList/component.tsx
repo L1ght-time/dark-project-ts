@@ -21,7 +21,7 @@ export function SideBarList({ label, routes }: ListItemsData): JSX.Element {
 
       <Collapse in={openListItem} timeout='auto' unmountOnExit>
         <List disablePadding>
-          {routes.map((props: RoutesData) => (
+          {routes?.map((props: RoutesData) => (
             <ListItem key={props.label} {...props} />
           ))}
         </List>
