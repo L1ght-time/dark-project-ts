@@ -1,5 +1,6 @@
 import React from 'react';
+import { Typography } from '@mui/material';
 
 export function Profile(): JSX.Element {
-  return <>Profile</>;
+  return <Typography>Profile</Typography>;
 }

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Box } from '@mui/material';
 import classnames from 'classnames';
 
-import Header from '../../Header';
-import { SideBar } from '../../SideBar';
+import Header from '../components/Header';
+import { SideBar } from '../components/SideBar';
 
 import { LayoutProps } from './type';
 import { useStyles } from './styles';
