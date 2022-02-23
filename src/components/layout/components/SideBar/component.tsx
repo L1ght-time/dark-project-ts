@@ -1,16 +1,17 @@
 import React from 'react';
-import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, useTheme } from '@mui/material';
-import { ChevronLeft, ChevronRight, Mail, MoveToInbox } from '@mui/icons-material';
+import { Box, Divider, Drawer, IconButton, List, useTheme } from '@mui/material';
+import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
-import { DRAWER_WIDTH, LIST_SIDE_BAR } from '../constants';
-import useStyles from '../styles';
+import useStyles from '../Header/styles';
+import { DRAWER_WIDTH } from '../Header/constants';
 
-import { HeaderDrawerProps } from './types';
+import { listItemsModel } from './constants';
+import { ListItemsData, SideBarProps } from './types';
+import { SideBarList } from './SideBarList';
 
-function HeaderDrawer({ isOpen, setOpen }: HeaderDrawerProps): JSX.Element {
+export function SideBar({ isOpen, setOpen }: SideBarProps): JSX.Element {
   const classes = useStyles();
   const theme = useTheme();
-
   const handleDrawerClose = () => setOpen(false);
 
   return (
@@ -35,15 +36,10 @@ function HeaderDrawer({ isOpen, setOpen }: HeaderDrawerProps): JSX.Element {
       </Box>
       <Divider />
       <List>
-        {LIST_SIDE_BAR.map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <MoveToInbox /> : <Mail />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+        {listItemsModel.map((item: ListItemsData) => (
+          <SideBarList key={item.label} {...item} />
         ))}
       </List>
     </Drawer>
   );
 }
-
-export default HeaderDrawer;

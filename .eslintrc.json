@@ -20,13 +20,7 @@
     "airbnb-typescript",
     "prettier"
   ],
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "prettier",
-    "jest",
-    "react-hooks"
-  ],
+  "plugins": ["react", "@typescript-eslint", "prettier", "jest", "react-hooks"],
   "rules": {
     "max-len": [
       "warn",
@@ -47,6 +41,7 @@
     "react/prop-types": "off",
     "import/prefer-default-export": "off",
     "@typescript-eslint/naming-convention": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "react/jsx-props-no-spreading": "off"
   }
 }

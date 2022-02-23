@@ -11,25 +11,24 @@ import {
   Search as SearchIcon,
 } from '@mui/icons-material';
 import classnames from 'classnames';
-
-import { CustomThemeContext } from '../../../theme/CustomThemeProvider';
+import { CustomThemeContext } from 'theme/CustomThemeProvider';
 
 import useStyles from './styles';
 import HeaderMenu from './HeaderMenu';
 import HeaderMobileMenu from './HeaderMobileMenu';
-import HeaderDrawer from './HeaderDrawer';
 import { MENU_ID, MOBILE_MENU_ID } from './constants';
+import { HeaderProps } from './types';
 
-function Header(): JSX.Element {
+function Header({ isSideBar, setSideBar }: HeaderProps): JSX.Element {
   const classes = useStyles();
-  const [isOpen, setOpen] = useState<boolean>(false);
+
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
 
   const { currentTheme, setTheme } = useContext(CustomThemeContext);
   const isDark = currentTheme === 'dark';
 
-  const handleDrawerOpen = () => setOpen(true);
+  const handleDrawerOpen = () => setSideBar(true);
 
   const handleThemeChange = () => setTheme(currentTheme === 'dark' ? 'light' : 'dark');
 
@@ -49,17 +48,16 @@ function Header(): JSX.Element {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar position='fixed' className={classnames(classes.root, isOpen ? classes.offsetAppBar : classes.fullAppBar)}>
+      <AppBar
+        position='fixed'
+        className={classnames(classes.root, { [classes.offsetAppBar]: isSideBar, [classes.fullAppBar]: !isSideBar })}
+      >
         <Toolbar>
-          <IconButton
-            color='inherit'
-            aria-label='open drawer'
-            onClick={handleDrawerOpen}
-            edge='start'
-            sx={{ mr: 2, ...(isOpen && { display: 'none' }) }}
-          >
-            <MenuIcon />
-          </IconButton>
+          {!isSideBar && (
+            <IconButton color='inherit' aria-label='open drawer' onClick={handleDrawerOpen} edge='start' sx={{ mr: 2 }}>
+              <MenuIcon />
+            </IconButton>
+          )}
           <Box sx={{ flexGrow: 1 }} />
           <Box className={classes.search}>
             <Box className={classes.searchIconWrapper}>
@@ -119,8 +117,6 @@ function Header(): JSX.Element {
 
         <HeaderMenu menuId={MENU_ID} anchorEl={anchorEl} isMenuOpen={isMenuOpen} handleMenuClose={handleMenuClose} />
       </AppBar>
-
-      <HeaderDrawer isOpen={isOpen} setOpen={setOpen} />
     </Box>
   );
 }

@@ -1,0 +1,1 @@
+export { FieldFormikText } from './component';

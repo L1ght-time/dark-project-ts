@@ -5,6 +5,6 @@ export interface AppBarProps extends MuiAppBarProps {
 }
 
 export interface HeaderProps {
-  isDarkMode: boolean;
-  setDarkMode: (value: boolean) => void;
+  isSideBar: boolean;
+  setSideBar: (value: boolean) => void;
 }
