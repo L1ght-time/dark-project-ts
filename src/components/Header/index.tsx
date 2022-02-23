@@ -51,18 +51,14 @@ function Header({ isSideBar, setSideBar }: HeaderProps): JSX.Element {
     <Box sx={{ display: 'flex' }}>
       <AppBar
         position='fixed'
-        className={classnames(classes.root, isSideBar ? classes.offsetAppBar : classes.fullAppBar)}
+        className={classnames(classes.root, { [classes.offsetAppBar]: isSideBar, [classes.fullAppBar]: !isSideBar })}
       >
         <Toolbar>
-          <IconButton
-            color='inherit'
-            aria-label='open drawer'
-            onClick={handleDrawerOpen}
-            edge='start'
-            sx={{ mr: 2, ...(isSideBar && { display: 'none' }) }}
-          >
-            <MenuIcon />
-          </IconButton>
+          {!isSideBar && (
+            <IconButton color='inherit' aria-label='open drawer' onClick={handleDrawerOpen} edge='start' sx={{ mr: 2 }}>
+              <MenuIcon />
+            </IconButton>
+          )}
           <Box sx={{ flexGrow: 1 }} />
           <Box className={classes.search}>
             <Box className={classes.searchIconWrapper}>

@@ -1,5 +1,5 @@
 import { AuthRoutes, FormikRoutes } from '../../constants';
-import { Dashboard } from '../../pages';
+import { Dashboard, Profile } from '../../pages';
 import { FieldArrayFormik, FieldFormikText } from '../../components/formik';
 
 export const authenticatedRoutes = [
@@ -11,7 +11,7 @@ export const authenticatedRoutes = [
   {
     path: `/${AuthRoutes.RoutePathProfile}`,
     exact: true,
-    component: Dashboard,
+    component: Profile,
   },
   {
     path: `/${AuthRoutes.RoutePathFormik}/${FormikRoutes.RouteField}`,

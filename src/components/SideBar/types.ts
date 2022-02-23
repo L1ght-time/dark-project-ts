@@ -10,5 +10,6 @@ export interface RoutesData {
 
 export interface ListItemsData {
   label: string;
-  routes: RoutesData[];
+  url?: string;
+  routes?: RoutesData[];
 }

@@ -36,8 +36,8 @@ export function SideBar({ isOpen, setOpen }: SideBarProps): JSX.Element {
       </Box>
       <Divider />
       <List>
-        {listItemsModel.map(({ label, routes }: ListItemsData) => (
-          <SideBarList key={label} routes={routes} label={label} />
+        {listItemsModel.map((item: ListItemsData) => (
+          <SideBarList key={item.label} {...item} />
         ))}
       </List>
     </Drawer>
