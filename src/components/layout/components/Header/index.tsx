@@ -19,7 +19,7 @@ import HeaderMobileMenu from './HeaderMobileMenu';
 import { MENU_ID, MOBILE_MENU_ID } from './constants';
 import { HeaderProps } from './types';
 
-function Header({ isSideBar, setSideBar }: HeaderProps): JSX.Element {
+function Header({ isSideBar, onToggle }: HeaderProps): JSX.Element {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -27,8 +27,6 @@ function Header({ isSideBar, setSideBar }: HeaderProps): JSX.Element {
 
   const { currentTheme, setTheme } = useContext(CustomThemeContext);
   const isDark = currentTheme === 'dark';
-
-  const handleDrawerOpen = () => setSideBar(true);
 
   const handleThemeChange = () => setTheme(currentTheme === 'dark' ? 'light' : 'dark');
 
@@ -54,7 +52,7 @@ function Header({ isSideBar, setSideBar }: HeaderProps): JSX.Element {
       >
         <Toolbar>
           {!isSideBar && (
-            <IconButton color='inherit' aria-label='open drawer' onClick={handleDrawerOpen} edge='start' sx={{ mr: 2 }}>
+            <IconButton color='inherit' aria-label='open drawer' onClick={onToggle} edge='start' sx={{ mr: 2 }}>
               <MenuIcon />
             </IconButton>
           )}

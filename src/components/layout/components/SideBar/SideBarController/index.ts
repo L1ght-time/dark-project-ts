@@ -1,0 +1,1 @@
+export { SideBarController } from './component';
