@@ -5,11 +5,11 @@ export const useStyles = makeStyles((theme: Theme) => ({
   mainContentWr: {
     marginTop: 84,
     marginLeft: 20,
-    transform: theme.transitions.create(['margin-left'], { duration: theme.transitions.duration.short }),
+    transition: theme.transitions.create(['margin-left'], { duration: theme.transitions.duration.short }),
   },
 
   contentWithSideBar: {
     marginLeft: 270,
-    transform: theme.transitions.create(['margin-left'], { duration: theme.transitions.duration.leavingScreen }),
+    transition: theme.transitions.create(['margin-left'], { duration: theme.transitions.duration.leavingScreen }),
   },
 }));

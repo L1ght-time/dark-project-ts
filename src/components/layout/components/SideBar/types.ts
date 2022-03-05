@@ -1,15 +1,18 @@
-export interface SideBarProps {
+export interface ISideBarProps {
   isOpen: boolean;
-  setOpen: (value: boolean) => void;
+  onToggle: () => void;
 }
 
-export interface RoutesData {
+export interface ISingleItemProps {
   label: string;
-  link: string;
+  url: string;
+  isNested?: boolean;
 }
 
-export interface ListItemsData {
+export interface INestedItemProps {
   label: string;
   url?: string;
-  routes?: RoutesData[];
+  routes?: ISingleItemProps[];
 }
+
+export type TSideBarItemAny = INestedItemProps | ISingleItemProps;

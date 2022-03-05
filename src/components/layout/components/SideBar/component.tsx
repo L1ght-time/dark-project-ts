@@ -6,13 +6,12 @@ import useStyles from '../Header/styles';
 import { DRAWER_WIDTH } from '../Header/constants';
 
 import { listItemsModel } from './constants';
-import { ListItemsData, SideBarProps } from './types';
-import { SideBarList } from './SideBarList';
+import { SideBarController } from './SideBarController';
+import { ISideBarProps, TSideBarItemAny } from './types';
 
-export function SideBar({ isOpen, setOpen }: SideBarProps): JSX.Element {
+export function SideBar({ isOpen, onToggle }: ISideBarProps): JSX.Element {
   const classes = useStyles();
   const theme = useTheme();
-  const handleDrawerClose = () => setOpen(false);
 
   return (
     <Drawer
@@ -30,14 +29,12 @@ export function SideBar({ isOpen, setOpen }: SideBarProps): JSX.Element {
       className={classes.drawer}
     >
       <Box className={classes.drawerHeader}>
-        <IconButton onClick={handleDrawerClose}>
-          {theme.direction === 'ltr' ? <ChevronLeft /> : <ChevronRight />}
-        </IconButton>
+        <IconButton onClick={onToggle}>{theme.direction === 'ltr' ? <ChevronLeft /> : <ChevronRight />}</IconButton>
       </Box>
       <Divider />
       <List>
-        {listItemsModel.map((item: ListItemsData) => (
-          <SideBarList key={item.label} {...item} />
+        {listItemsModel.map((item: TSideBarItemAny) => (
+          <SideBarController key={item.label} {...item} />
         ))}
       </List>
     </Drawer>

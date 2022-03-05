@@ -10,14 +10,16 @@ import { useStyles } from './styles';
 
 export function Layout({ children }: LayoutProps): JSX.Element {
   const classes = useStyles();
-  const [isSideBar, setSideBar] = useState<boolean>(false);
+  const [isSidebar, setSidebar] = useState<boolean>(false);
+
+  const handleToggleSidebar = () => setSidebar((prevState) => !prevState);
 
   return (
     <Box>
-      <SideBar isOpen={isSideBar} setOpen={setSideBar} />
-      <Header isSideBar={isSideBar} setSideBar={setSideBar} />
+      <SideBar isOpen={isSidebar} onToggle={handleToggleSidebar} />
+      <Header isSideBar={isSidebar} onToggle={handleToggleSidebar} />
       <Box p={4}>
-        <Box className={classnames(classes.mainContentWr, { [classes.contentWithSideBar]: isSideBar })}>{children}</Box>
+        <Box className={classnames(classes.mainContentWr, { [classes.contentWithSideBar]: isSidebar })}>{children}</Box>
       </Box>
     </Box>
   );

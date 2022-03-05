@@ -6,5 +6,5 @@ export interface AppBarProps extends MuiAppBarProps {
 
 export interface HeaderProps {
   isSideBar: boolean;
-  setSideBar: (value: boolean) => void;
+  onToggle: () => void;
 }

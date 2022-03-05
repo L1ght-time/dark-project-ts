@@ -1,31 +1,35 @@
-import { AuthRoutes, FormikRoutes } from '../../../../constants';
+import { authenticatedRoutesModel } from 'constants/routes/constants';
 
-import { ListItemsData } from './types';
+import { TSideBarItemAny } from './types';
 
-export const listItemsModel: ListItemsData[] = [
+export const listItemsModel: TSideBarItemAny[] = [
+  {
+    label: 'Home',
+    url: authenticatedRoutesModel.dashboard.index,
+  },
   {
     label: 'Formik',
     routes: [
       {
         label: 'Field',
-        link: `/${AuthRoutes.RoutePathFormik}/${FormikRoutes.RouteField}`,
+        url: authenticatedRoutesModel.formik.field,
       },
       {
         label: 'FieldArray',
-        link: `/${AuthRoutes.RoutePathFormik}/${FormikRoutes.RouteFieldArray}`,
+        url: authenticatedRoutesModel.formik.fieldArray,
       },
     ],
   },
   {
-    label: 'regerg',
+    label: 'Formik-2',
     routes: [
       {
         label: 'Field1',
-        link: `/${AuthRoutes.RoutePathFormik}/${FormikRoutes.RouteField}`,
+        url: authenticatedRoutesModel.formik.field,
       },
       {
         label: 'FieldArray1',
-        link: `/${AuthRoutes.RoutePathFormik}/${FormikRoutes.RouteFieldArray}`,
+        url: authenticatedRoutesModel.formik.fieldArray,
       },
     ],
   },

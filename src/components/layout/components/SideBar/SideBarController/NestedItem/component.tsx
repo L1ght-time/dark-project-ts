@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { Collapse, List, ListItemButton, ListItemText } from '@mui/material';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 
-import { ListItemsData, RoutesData } from '../types';
+import { INestedItemProps, ISingleItemProps } from '../../types';
+import { SingleItem } from '../SingleItem';
 
-import { ListItem } from './ListItem';
-
-export function SideBarList({ label, routes }: ListItemsData): JSX.Element {
+export function NestedItem({ label, routes }: INestedItemProps): JSX.Element {
   const [openListItem, setOpenListItem] = useState<boolean>(false);
 
   const handleClick = () => {
     setOpenListItem((prevState) => !prevState);
   };
+
   return (
     <List key={label} component='div' disablePadding>
       <ListItemButton onClick={handleClick}>
@@ -21,8 +21,8 @@ export function SideBarList({ label, routes }: ListItemsData): JSX.Element {
 
       <Collapse in={openListItem} timeout='auto' unmountOnExit>
         <List disablePadding>
-          {routes?.map((props: RoutesData) => (
-            <ListItem key={props.label} {...props} />
+          {routes?.map((props: ISingleItemProps) => (
+            <SingleItem key={props.label} isNested {...props} />
           ))}
         </List>
       </Collapse>

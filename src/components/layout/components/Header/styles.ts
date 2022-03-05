@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   drawerHeader: {
     display: 'flex',
     alignItems: 'center',
-    padding: theme.spacing(0, 1),
+    padding: theme.spacing(1, 1),
     justifyContent: 'flex-end',
   },
 
