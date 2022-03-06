@@ -1,6 +1,13 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { TextField } from '@mui/material';
 
-export function FieldFormikText(): JSX.Element {
-  return <Box>FieldFormikText</Box>;
+import FieldFormikProps from '../FieldFormik/types';
+
+// interface IFieldFormikTextProps {
+//   props: FieldFormikProps;
+//   field: FieldProps;
+// }
+
+export function FieldFormikText({ ...props }: FieldFormikProps): JSX.Element {
+  return <TextField {...props} />;
 }
