@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { TSideBarItemAny } from '../types';
 
 import { isNested } from './helpers';

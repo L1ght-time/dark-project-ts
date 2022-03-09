@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Divider, Drawer, IconButton, List, useTheme } from '@mui/material';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
@@ -18,6 +17,7 @@ export function SideBar({ isOpen, onToggle }: ISideBarProps): JSX.Element {
       sx={{
         width: DRAWER_WIDTH,
         flexShrink: 0,
+
         '& .MuiDrawer-paper': {
           width: DRAWER_WIDTH,
           boxSizing: 'border-box',

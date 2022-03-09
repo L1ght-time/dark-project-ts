@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { authenticatedRoutes } from 'constants/routes/authRoutes';
 import { nonAuthRoutes } from 'constants/routes/nonAuthRoutes';

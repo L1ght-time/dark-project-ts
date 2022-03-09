@@ -1,5 +1,5 @@
-import React from 'react';
+import { Typography } from '@mui/material';
 
 export function NotFound(): JSX.Element {
-  return <>Not Found</>;
+  return <Typography>Not Found</Typography>;
 }

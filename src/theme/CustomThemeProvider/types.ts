@@ -1,14 +1,15 @@
 import { ReactNode } from 'react';
 
-interface ContextValueData {
+interface IContextValueData {
   currentTheme: string;
-  setTheme: (name: string) => {};
+  setTheme: (name: string) => void;
 }
 
-export interface ProviderData extends ContextValueData {
+export interface IProviderData extends IContextValueData {
+  // eslint-disable-next-line @typescript-eslint/ban-types
   [key: string]: string | Function;
 }
 
-export interface CustomThemeProviderProps {
+export interface ICustomThemeProviderProps {
   children: ReactNode;
 }

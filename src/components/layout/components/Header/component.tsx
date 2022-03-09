@@ -1,4 +1,4 @@
-import React, { MouseEvent, useContext, useState } from 'react';
+import { MouseEvent, useContext, useState } from 'react';
 import { AppBar, Badge, Box, IconButton, TextField, Toolbar } from '@mui/material';
 import {
   AccountCircle,
@@ -14,24 +14,23 @@ import classnames from 'classnames';
 import { CustomThemeContext } from 'theme/CustomThemeProvider';
 
 import useStyles from './styles';
-import HeaderMenu from './HeaderMenu';
-import HeaderMobileMenu from './HeaderMobileMenu';
+import { HeaderMenu } from './HeaderMenu';
 import { MENU_ID, MOBILE_MENU_ID } from './constants';
-import { HeaderProps } from './types';
+import { IHeaderProps } from './types';
+import { HeaderMobileMenu } from './HeaderMobileMenu';
 
-function Header({ isSideBar, onToggle }: HeaderProps): JSX.Element {
-  const classes = useStyles();
-
+export function Header({ isSideBar, onToggle }: IHeaderProps): JSX.Element {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
 
+  const classes = useStyles();
   const { currentTheme, setTheme } = useContext(CustomThemeContext);
+
   const isDark = currentTheme === 'dark';
-
-  const handleThemeChange = () => setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const handleThemeChange = () => setTheme(isDark ? 'light' : 'dark');
 
   const handleProfileMenuOpen = (event: MouseEvent<HTMLElement>) => setAnchorEl(event.currentTarget);
 
@@ -52,7 +51,7 @@ function Header({ isSideBar, onToggle }: HeaderProps): JSX.Element {
       >
         <Toolbar>
           {!isSideBar && (
-            <IconButton color='inherit' aria-label='open drawer' onClick={onToggle} edge='start' sx={{ mr: 2 }}>
+            <IconButton color='inherit' onClick={onToggle} edge='start' sx={{ mr: 2 }}>
               <MenuIcon />
             </IconButton>
           )}
@@ -69,37 +68,22 @@ function Header({ isSideBar, onToggle }: HeaderProps): JSX.Element {
           </IconButton>
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size='large' aria-label='show 4 new mails' color='inherit'>
+            <IconButton size='large' color='inherit'>
               <Badge badgeContent={4} color='error'>
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton size='large' aria-label='show 17 new notifications' color='inherit'>
+            <IconButton size='large' color='inherit'>
               <Badge badgeContent={17} color='error'>
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              size='large'
-              edge='end'
-              aria-label='account of current user'
-              aria-controls={MENU_ID}
-              aria-haspopup='true'
-              onClick={handleProfileMenuOpen}
-              color='inherit'
-            >
+            <IconButton size='large' edge='end' onClick={handleProfileMenuOpen} color='inherit'>
               <AccountCircle />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size='large'
-              aria-label='show more'
-              aria-controls={MOBILE_MENU_ID}
-              aria-haspopup='true'
-              onClick={handleMobileMenuOpen}
-              color='inherit'
-            >
+            <IconButton size='large' onClick={handleMobileMenuOpen} color='inherit'>
               <MoreIcon />
             </IconButton>
           </Box>
@@ -108,15 +92,13 @@ function Header({ isSideBar, onToggle }: HeaderProps): JSX.Element {
         <HeaderMobileMenu
           mobileMenuId={MOBILE_MENU_ID}
           mobileMoreAnchorEl={mobileMoreAnchorEl}
-          isMobileMenuOpen={isMobileMenuOpen}
-          handleProfileMenuOpen={handleProfileMenuOpen}
-          handleMobileMenuClose={handleMobileMenuClose}
+          open={isMobileMenuOpen}
+          onProfileMenuOpen={handleProfileMenuOpen}
+          onMobileMenuClose={handleMobileMenuClose}
         />
 
-        <HeaderMenu menuId={MENU_ID} anchorEl={anchorEl} isMenuOpen={isMenuOpen} handleMenuClose={handleMenuClose} />
+        <HeaderMenu menuId={MENU_ID} anchorEl={anchorEl} open={isMenuOpen} onMenuClose={handleMenuClose} />
       </AppBar>
     </Box>
   );
 }
-
-export default Header;

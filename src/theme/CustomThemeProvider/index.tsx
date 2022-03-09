@@ -1,9 +1,9 @@
-import React, { createContext, useMemo, useState } from 'react';
+import { createContext, useMemo, useState } from 'react';
 import { ThemeProvider } from '@mui/styles';
 
 import { getTheme } from '../base';
 
-import { CustomThemeProviderProps, ProviderData } from './types';
+import { ICustomThemeProviderProps, IProviderData } from './types';
 
 export const CustomThemeContext = createContext({
   currentTheme: 'light',
@@ -11,7 +11,7 @@ export const CustomThemeContext = createContext({
   setTheme: (name: string) => {},
 });
 
-export function CustomThemeProvider({ children }: CustomThemeProviderProps): JSX.Element {
+export function CustomThemeProvider({ children }: ICustomThemeProviderProps): JSX.Element {
   const currentTheme = localStorage.getItem('appTheme') || 'light';
 
   const [themeName, _setThemeName] = useState<string>(currentTheme);
@@ -32,7 +32,7 @@ export function CustomThemeProvider({ children }: CustomThemeProviderProps): JSX
   );
 
   return (
-    <CustomThemeContext.Provider value={contextValue as ProviderData}>
+    <CustomThemeContext.Provider value={contextValue as IProviderData}>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </CustomThemeContext.Provider>
   );
