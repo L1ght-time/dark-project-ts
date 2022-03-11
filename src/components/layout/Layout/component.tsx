@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
 import { Box } from '@mui/material';
 import classnames from 'classnames';
+import { Header } from 'components/layout/components/Header';
+import { SideBar } from 'components/layout/components/SideBar';
+import { useState } from 'react';
 
-import Header from '../components/Header';
-import { SideBar } from '../components/SideBar';
-
-import { LayoutProps } from './type';
+import { ILayoutProps } from './types';
 import { useStyles } from './styles';
 
-export function Layout({ children }: LayoutProps): JSX.Element {
+export function Layout({ children }: ILayoutProps): JSX.Element {
   const classes = useStyles();
   const [isSidebar, setSidebar] = useState<boolean>(false);
 

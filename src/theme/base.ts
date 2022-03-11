@@ -1,10 +1,10 @@
 import light from './lightTheme';
 import dark from './darkTheme';
-import { ThemeKeys } from './types';
+import { IThemeKeys } from './types';
 
-const themes: ThemeKeys = {
+const themes: IThemeKeys = {
   light,
   dark,
 };
 
-export const getTheme = (theme: string): ThemeKeys[string] => themes[theme];
+export const getTheme = (theme: string): IThemeKeys[string] => themes[theme];

@@ -1,5 +1,5 @@
-import React from 'react';
+import { Typography } from '@mui/material';
 
 export function Dashboard(): JSX.Element {
-  return <>Dashboard</>;
+  return <Typography>Dashboard</Typography>;
 }

@@ -1,8 +1,6 @@
-interface HeaderMenuProps {
-  menuId: string;
-  anchorEl: null | HTMLElement;
-  isMenuOpen: boolean;
-  handleMenuClose: () => void;
-}
+import { MenuProps } from '@mui/material/Menu/Menu';
 
-export default HeaderMenuProps;
+export interface IHeaderMenuProps extends MenuProps {
+  menuId: string;
+  onMenuClose: () => void;
+}

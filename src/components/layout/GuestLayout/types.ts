@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
 
-export interface GuestLayoutProps {
+export interface IGuestLayoutProps {
   children: ReactNode;
 }

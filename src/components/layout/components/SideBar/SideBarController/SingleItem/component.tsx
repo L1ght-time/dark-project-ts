@@ -1,6 +1,5 @@
 import { ListItemButton, Typography } from '@mui/material';
-import React from 'react';
-import MuiLink from 'components/shared/MuiLink';
+import { MuiLink } from 'components/shared/MuiLink';
 
 import { ISingleItemProps } from '../../types';
 
