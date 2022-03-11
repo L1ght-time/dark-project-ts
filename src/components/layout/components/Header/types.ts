@@ -1,10 +1,4 @@
-import { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-
-export interface AppBarProps extends MuiAppBarProps {
-  open?: boolean;
-}
-
-export interface HeaderProps {
+export interface IHeaderProps {
   isSideBar: boolean;
   onToggle: () => void;
 }

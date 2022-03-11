@@ -1,8 +1,6 @@
 import { ReactNode } from 'react';
 
-export interface IconWraperProps {
+export interface IIconWrapperProps {
   children: ReactNode;
   className?: string;
 }
-
-export default IconWraperProps;

@@ -1,11 +1,9 @@
 import { MouseEvent } from 'react';
+import { MenuProps } from '@mui/material/Menu/Menu';
 
-interface HeaderMobileMenuProps {
+export interface IHeaderMobileMenuProps extends MenuProps {
   mobileMenuId: string;
   mobileMoreAnchorEl: null | HTMLElement;
-  isMobileMenuOpen: boolean;
-  handleProfileMenuOpen: (event: MouseEvent<HTMLElement>) => void;
-  handleMobileMenuClose: () => void;
+  onProfileMenuOpen: (event: MouseEvent<HTMLElement>) => void;
+  onMobileMenuClose: () => void;
 }
-
-export default HeaderMobileMenuProps;

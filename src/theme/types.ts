@@ -1,5 +1,5 @@
 import { Theme } from '@mui/material';
 
-export interface ThemeKeys {
+export interface IThemeKeys {
   [key: string]: Theme;
 }

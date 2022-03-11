@@ -1,16 +1,13 @@
-import React from 'react';
-import { TextField } from '@mui/material';
+import { TextField, TextFieldProps } from '@mui/material';
 
-import FieldFormikProps from './types';
-
-function FieldFormik({
+export function FieldFormik({
   className,
   label,
   name,
   type = 'text',
   variant = 'outlined',
   autoComplete = 'off',
-}: FieldFormikProps): JSX.Element {
+}: TextFieldProps): JSX.Element {
   return (
     <TextField
       type={type}
@@ -22,5 +19,3 @@ function FieldFormik({
     />
   );
 }
-
-export default FieldFormik;
