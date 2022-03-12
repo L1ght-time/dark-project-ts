@@ -1,5 +1,6 @@
-import { FieldArrayFormik, FieldFormikText } from 'components/formik';
+import { FieldArrayFormik } from 'components/formik';
 import { Dashboard, Profile } from 'pages';
+import { FieldPage } from 'pages/Field/component';
 
 import { authenticatedRoutesModel } from './constants';
 
@@ -17,7 +18,7 @@ export const authenticatedRoutes = [
   {
     path: authenticatedRoutesModel.formik.field,
     exact: true,
-    component: FieldFormikText,
+    component: FieldPage,
   },
   {
     path: authenticatedRoutesModel.formik.fieldArray,
