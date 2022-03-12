@@ -1,7 +1,8 @@
 import React from 'react';
 import { Form, Formik, Field } from 'formik';
 import { FieldFormikText } from 'components/formik';
-import { Box, MenuItem, Stack, Typography } from '@mui/material';
+import { Box, InputAdornment, MenuItem, Stack, Typography } from '@mui/material';
+import { AccountCircle } from '@mui/icons-material';
 
 import { currencies } from './mock';
 
@@ -10,6 +11,7 @@ export function FieldPage(): JSX.Element {
     <Formik
       initialValues={{
         text: '',
+        textWidthIcon: '',
         number: '',
         select: currencies[0].value,
       }}
@@ -19,11 +21,26 @@ export function FieldPage(): JSX.Element {
         <Form>
           <Stack direction='row' spacing={4} justifyContent='center'>
             <Box>
-              <Typography pb={2}>Text Type</Typography>
+              <Typography pb={2}>Text type</Typography>
               <Field name='text' label='Text' component={FieldFormikText} />
             </Box>
             <Box>
-              <Typography pb={2}>Outlined Field</Typography>
+              <Typography pb={2}>Field with icon</Typography>
+              <Field
+                name='textWidthIcon'
+                label='Text with icon'
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position='start'>
+                      <AccountCircle />
+                    </InputAdornment>
+                  ),
+                }}
+                component={FieldFormikText}
+              />
+            </Box>
+            <Box>
+              <Typography pb={2}>Outlined field</Typography>
               <Field type='number' name='number' label='Outlined' component={FieldFormikText} />
             </Box>
             <Box>
