@@ -1,6 +1,5 @@
 import { FieldArrayFormik } from 'components/formik';
-import { Dashboard, Profile } from 'pages';
-import { FieldPage } from 'pages/Field/component';
+import { Dashboard, Profile, FieldPage } from 'pages';
 
 import { authenticatedRoutesModel } from './constants';
 
