@@ -1,15 +1,18 @@
-import { FieldArray, Formik } from 'formik';
-
-import { FieldArrayFormik } from '../../components/formik';
+import { Formik, Form } from 'formik';
+import { FieldArrayFormik, FieldFormikText } from 'components/formik';
 
 const initialValues = {
-  friends: [{ name: '' }, { name: '' }, { name: '' }],
+  strings: ['', '', 'makson'],
+  numbers: [12312, 123, 23],
 };
 
 export function FieldArrayPage(): JSX.Element {
   return (
     <Formik initialValues={initialValues} onSubmit={() => {}}>
-      <FieldArray name='friends' component={FieldArrayFormik} />
+      <Form>
+        <FieldArrayFormik name='strings' subComponent={FieldFormikText} />
+        <FieldArrayFormik name='numbers' subComponent={FieldFormikText} subProps={{ type: 'number' }} />
+      </Form>
     </Formik>
   );
 }

@@ -1,7 +1,6 @@
 import { makeStyles } from '@mui/styles';
-import { Theme } from '@mui/material';
 
-export const useStyles = makeStyles((theme: Theme) => ({
+export const useStyles = makeStyles(() => ({
   formContentWr: {
     display: 'flex',
     flexDirection: 'column',
@@ -12,12 +11,5 @@ export const useStyles = makeStyles((theme: Theme) => ({
     width: 'fit-content',
     display: 'flex',
     gap: 5,
-  },
-  button: {
-    backgroundColor: theme.palette.primary.main,
-
-    '&:hover': {
-      backgroundColor: theme.palette.primary.main,
-    },
   },
 }));
