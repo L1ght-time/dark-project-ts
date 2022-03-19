@@ -1,18 +1,18 @@
 import { Field, FieldArray } from 'formik';
-import { Box, Button } from '@mui/material';
-import { DisplayFormikStateData } from 'components/shared/DisplayFormikStateData/component';
+import { Box, Button, Stack, Typography } from '@mui/material';
 
 import { useStyles } from './styles';
 import { TFieldArrayFormik } from './types';
 
-export function FieldArrayFormik({ subComponent, subProps, name }: TFieldArrayFormik): JSX.Element {
+export function FieldArrayFormik({ subComponent, subProps, name, label }: TFieldArrayFormik): JSX.Element {
   const classes = useStyles();
 
   return (
     <FieldArray name={name}>
       {({ form, push, remove }) => (
-        <>
-          <Box className={classes.formContentWr}>
+        <Box className={classes.formContentWr}>
+          <Typography>{label}</Typography>
+          <Stack spacing={3}>
             {form.values[name]?.map((friend: string, index: number) => (
               // eslint-disable-next-line react/no-array-index-key
               <Box key={index} className={classes.fieldWr}>
@@ -22,12 +22,11 @@ export function FieldArrayFormik({ subComponent, subProps, name }: TFieldArrayFo
                 </Button>
               </Box>
             ))}
-            <Button variant='contained' onClick={() => push('')}>
-              +
-            </Button>
-          </Box>
-          <DisplayFormikStateData values={form.values[name]} />
-        </>
+          </Stack>
+          <Button variant='contained' onClick={() => push('')}>
+            +
+          </Button>
+        </Box>
       )}
     </FieldArray>
   );
