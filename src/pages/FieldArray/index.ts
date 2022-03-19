@@ -1,0 +1,1 @@
+export { FieldArrayPage } from './component';

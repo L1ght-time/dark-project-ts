@@ -43,6 +43,7 @@
     "@typescript-eslint/naming-convention": "off",
     "class-methods-use-this": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/no-unused-prop-types": "off"
   }
 }

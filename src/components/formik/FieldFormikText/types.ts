@@ -1,6 +1,4 @@
-import { BaseTextFieldProps } from '@mui/material/TextField/TextField';
+import { FieldProps } from 'formik';
 import { TextFieldProps } from '@mui/material';
 
-export interface IFieldFormikTextProps extends BaseTextFieldProps {
-  field: TextFieldProps;
-}
+export type TFieldFormikTextProps = FieldProps & TextFieldProps;
