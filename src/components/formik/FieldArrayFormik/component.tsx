@@ -5,10 +5,7 @@ import { FieldFormikText } from '../FieldFormikText';
 import { DisplayFormikStateData } from '../../shared/DisplayFormikStateData/component';
 
 import { useStyles } from './styles';
-
-interface IField {
-  name: string;
-}
+import { IField } from './types';
 
 export function FieldArrayFormik({ form, push, remove, insert }: FormikValues): JSX.Element {
   const classes = useStyles();
